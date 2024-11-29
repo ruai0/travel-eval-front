@@ -1,164 +1,232 @@
+<!-- shop-list.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-  <title>旅游点评</title>
-  <!-- 引入样式 -->
-  <link rel="stylesheet" href="./css/element.css">
-
-  <link href="./css/shop-list.css" rel="stylesheet">
-  <link href="./css/main.css" rel="stylesheet">
-
-  <style type="text/css">
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商户列表</title>
+    <link rel="stylesheet" href="./css/element.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/shop-list.css">
 </head>
 <body>
 <div id="app">
-  <div class="header">
-    <div class="header-back-btn" @click="goBack"><i class="el-icon-arrow-left"></i></div>
-    <div class="header-title">{{typeName}}</div>
-    <div class="header-search">
-      <i class="el-icon-search"></i>
-    </div>
-  </div>
-  <div class="sort-bar">
-    <div class="sort-item">
-      <el-dropdown trigger="click" @command="handleCommand">
-      <span class="el-dropdown-link">
-        {{typeName}}<i class="el-icon-arrow-down el-icon--right"></i>
-      </span>
-        <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item v-for="t in types" :key="t.id" :command="t">
-            {{t.name}}
-          </el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
-    </div>
-    <div class="sort-item" @click="sortAndQuery('')">
-      距离 <i class="el-icon-arrow-down el-icon--right"></i>
-    </div>
-    <div class="sort-item" @click="sortAndQuery('comments')">
-      人气 <i class="el-icon-arrow-down el-icon--right"></i>
-    </div>
-    <div class="sort-item" @click="sortAndQuery('score')">
-      评分 <i class="el-icon-arrow-down el-icon--right"></i>
-    </div>
-  </div>
-  <div class="shop-list" @scroll="onScroll">
-    <div class="shop-box" v-for="s in shops" :key="s.id" @click="toDetail(s.id)">
-      <div class="shop-img"><img :src="s.images" alt=""></div>
-      <div class="shop-info">
-        <div class="shop-title shop-item">{{s.name}}</div>
-        <div class="shop-rate shop-item" >
-          <el-rate
-              disabled v-model="s.score/10"
-              text-color="#F63"
-              show-score
-          ></el-rate>
-          <span>{{s.comments}}条</span>
+    <!-- 顶部导航 -->
+    <div class="header">
+        <div class="header-back-btn" @click="goBack">
+            <i class="el-icon-arrow-left"></i>
         </div>
-        <div class="shop-area shop-item">
-          <span>{{s.area}}</span>
-          <span v-if="s.distance">{{s.distance < 1000 ? s.distance.toFixed(1) + 'm' : (s.distance/1000).toFixed(1) + 'km'}}</span>
+        <div class="header-title">{{typeName}}</div>
+        <div class="header-search">
+            <i class="el-icon-search"  @click="showSearchInput = !showSearchInput"></i>
         </div>
-        <div class="shop-avg shop-item">￥{{s.avgPrice}}/人</div>
-        <div class="shop-address shop-item">
-          <i class="el-icon-map-location"></i>
-          <span>{{s.address}}</span>
-        </div>
-      </div>
     </div>
-  </div>
+
+    <!-- 搜索框，默认隐藏 -->
+    <div class="search-bar" v-show="showSearchInput">
+        <div class="search-input">
+            <el-input 
+                v-model="searchKey" 
+                placeholder="搜索商户名称"
+                clearable
+                @input="handleSearch">
+                <i slot="prefix" class="el-icon-search" style="margin-top: 12px;"></i>
+            </el-input>
+        </div>
+    </div>
+
+    <!-- 距离筛选 -->
+    <div class="sort-bar">
+        <div class="sort-item" 
+            v-for="item in distanceOptions" 
+            :key="item.value"
+            :class="{ active: distance === item.value }"
+            @click="setDistance(item.value)">
+            {{item.label}}
+        </div>
+    </div>
+
+    <!-- 商户列表 -->
+    <div class="shop-list" @scroll="onScroll">
+        <div class="shop-box" v-for="shop in shops" :key="shop.id" @click="goToDetail(shop.id)">
+            <div class="shop-img">
+                <img :src="shop.images.split(',')[0]" :alt="shop.name">
+            </div>
+            <div class="shop-info">
+                <div class="shop-title">{{shop.name}}</div>
+                <div class="shop-area">
+                    <div class="shop-address">
+                        <i class="el-icon-location"></i>
+                        <span>{{shop.address}}</span>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="price" v-if="shop.avgPrice">￥{{shop.avgPrice}}/人</span>
+                    <span class="distance" v-if="shop.distance != null">
+                        {{formatDistance(shop.distance)}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="loading" v-if="loading">加载中...</div>
+        <div class="no-more" v-if="noMore">没有更多了</div>
+    </div>
 </div>
+
 <script src="./js/vue.js"></script>
 <script src="./js/axios.min.js"></script>
-<!-- 引入组件库 -->
 <script src="./js/element.js"></script>
 <script src="./js/common.js"></script>
+<script src="./js/location.js"></script>
 <script>
-
-  const app = new Vue({
-    el: "#app",
+new Vue({
+    el: '#app',
     data: {
-      util,
-      isReachBottom: false,
-      types: [], // 类型列表
-      shops: [], // 商店列表
-      typeName: "",
-      params:{
-        typeId: 0,
+        typeId: null,
+        typeName: '',
+        shops: [],
         current: 1,
-        sortBy: "",
-        x: 120.149993, // 经度
-        y: 30.334229 // 纬度
-      }
+        distance: 0,
+        loading: false,
+        noMore: false,
+        searchKey: '',
+        showSearchInput: false,
+        location: null,
+        locationService: null,
+        searchTimer: null,
+        distanceOptions: [
+            { label: '全部商户', value: 0 },
+            { label: '500m内', value: 500 },
+            { label: '1km内', value: 1000 },
+            { label: '2km内', value: 2000 }
+        ]
     },
-    created() {
-      // 获取参数
-      this.params.typeId = util.getUrlParam("type");
-      this.typeName = util.getUrlParam("name");
-      // 查询类型
-      this.queryTypes();
-      // 查询商店
-      this.queryShops();
+    async created() {
+        // 获取路由参数
+        const params = new URLSearchParams(window.location.search);
+        this.typeId = params.get('type') || params.get('typeId');  // 同时支持type和typeId参数
+        this.typeName = params.get('name') || '商户列表';
+        
+        // 初始化定位服务
+        this.locationService = new LocationService();
+        await this.updateLocation();
+        
+        // 加载商户数据
+        this.loadShops();
+    },
+    watch: {
+        showSearchInput(val) {
+            // 当搜索框显示状态改变时，更新样式
+            const searchBar = document.querySelector('.search-bar');
+            if (searchBar) {
+                if (val) {
+                    searchBar.classList.add('show');
+                } else {
+                    searchBar.classList.remove('show');
+                }
+            }
+        }
     },
     methods: {
-      queryTypes() {
-        axios.get("/shop-type/list")
-          .then(({data}) => {
-            this.types = data;
-          })
-          .catch(err => {
-            console.log(err);
-            this.$message.error(err)
-          })
-      },
-      queryShops() {
-        axios.get("/shop/of/type", {
-            params: this.params
-          })
-          .then(({data}) => {
-            if (!data) {
-              return
+        async updateLocation() {
+            try {
+                this.location = await this.locationService.getCurrentLocation();
+            } catch (error) {
+                console.error('获取位置失败:', error);
+                this.$message.warning('获取位置失败，将显示全部商户');
             }
-            data.forEach(s => s.images = s.images.split(',')[0]);
-            this.shops = this.shops.concat(data);
-          })
-          .catch(err => {
-            console.log(err);
-            this.$message.error(err)
-          })
-      },
-      handleCommand(t) {
-        location.href = "/shop-list.html?type="+t.id+"&name="+t.name;
-      },
-      sortAndQuery(sortBy) {
-        this.params.sortBy = sortBy;
-        this.queryShops();
-      },
-      goBack() {
-        history.back();
-      },
-      toDetail(id) {
-        location.href = "/shop-detail.html?id="+id
-      },
-      onScroll(e) {
-        let scrollTop = e.target.scrollTop;
-        let offsetHeight = e.target.offsetHeight;
-        let scrollHeight = e.target.scrollHeight;
-        if(scrollTop + offsetHeight + 1 > scrollHeight && !this.isReachBottom){
-          this.isReachBottom = true
-          console.log("触底")
-          this.params.current++
-          this.queryShops(this.params.current, 5);
-        }else{
-          this.isReachBottom = false
+        },
+        
+        async loadShops() {
+            if (this.loading || this.noMore) return;
+            
+            this.loading = true;
+            try {
+                const params = {
+                    typeId: this.typeId,
+                    current: this.current
+                };
+                
+                // 添加位置信息
+                if (this.location) {
+                    params.x = this.location.longitude;
+                    params.y = this.location.latitude;
+                }
+                
+                // 添加距离限制
+                if (this.distance > 0) {
+                    params.distance = this.distance;
+                }
+                
+                // 添加搜索关键词
+                if (this.searchKey) {
+                    params.name = this.searchKey;
+                }
+                
+                const res = await axios.get('/shop/of/type', { params });
+                
+                const newShops = res.data;
+                if (newShops.length === 0) {
+                    this.noMore = true;
+                } else {
+                    this.shops = this.current === 1 ? newShops : this.shops.concat(newShops);
+                    this.current++;
+                }
+            } catch (error) {
+                console.error('加载商户失败:', error);
+                this.$message.error(error || '加载商户失败');
+            } finally {
+                this.loading = false;
+            }
+        },
+        
+        setDistance(distance) {
+            if (this.distance === distance) return;
+            this.distance = distance;
+            this.current = 1;
+            this.shops = [];
+            this.noMore = false;
+            this.loadShops();
+        },
+        
+        handleSearch() {
+            // 清除之前的定时器
+            if (this.searchTimer) {
+                clearTimeout(this.searchTimer);
+            }
+            // 设置新的定时器
+            this.searchTimer = setTimeout(() => {
+                this.current = 1;
+                this.shops = [];
+                this.noMore = false;
+                this.loadShops();
+            }, 300);
+        },
+        
+        onScroll(e) {
+            const { scrollTop, scrollHeight, clientHeight } = e.target;
+            if (scrollTop + clientHeight >= scrollHeight - 50 && !this.loading) {
+                this.loadShops();
+            }
+        },
+        
+        formatDistance(distance) {
+            if (distance < 1000) {
+                return Math.round(distance) + 'm';
+            } else {
+                return (distance / 1000).toFixed(1) + 'km';
+            }
+        },
+        
+        goToDetail(id) {
+            window.location.href = `/shop-detail.html?id=${id}`;
+        },
+        
+        goBack() {
+            window.history.back();
         }
-      },
     }
-  })
+});
 </script>
 </body>
 </html>
