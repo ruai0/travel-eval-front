@@ -19,13 +19,22 @@
 <body>
 <div id="app">
   <div class="search-bar">
-    <div class="city-btn">杭州 <i class="el-icon-arrow-down"></i></div>
+    <div class="city-btn" @click="showLocationSelect">
+      <span>{{ currentLocation || '定位中...' }}</span>
+      <i class="el-icon-arrow-down"></i>
+    </div>
     <div class="search-input">
-      <el-input size="mini" placeholder="请输入商户名、地点">
+      <el-input 
+        size="mini" 
+        placeholder="请输入商户名、地点"
+        v-model="searchKeyword"
+        @input="handleSearch">
         <i slot="prefix" class="el-input__icon el-icon-search"></i>
       </el-input>
     </div>
-    <div class="header-icon" @click="toPage(4)"><i class="el-icon-user"></i></div>
+    <div class="header-icon" @click="toPage(4)">
+      <i class="el-icon-user"></i>
+    </div>
   </div>
   <div class="type-list">
     <div class="type-box" v-for="t in types" :key="t.id" @click="toShopList(t.id, t.name)">
@@ -51,89 +60,13 @@
   </div>
   <foot-bar :active-btn="1"></foot-bar>
 </div>
+<script src="https://map.qq.com/api/gljs?v=1.exp&key=NMIBZ-JAQLZ-WGYX7-ZYKXV-K5IX3-LGFKM"></script>
 <script src="./js/vue.js"></script>
 <script src="./js/axios.min.js"></script>
-<!-- 引入组件库 -->
 <script src="./js/element.js"></script>
 <script src="./js/common.js"></script>
 <script src="./js/footer.js"></script>
-<script>
-
-  const app = new Vue({
-    el: "#app",
-    data: {
-      isReachBottom: false,
-      types: [], // 类型列表
-      blogs: [], // 播客列表
-      current: 1,// blog的页码
-    },
-    created() {
-      // 查询类型
-      this.queryTypes();
-      this.queryHotBlogsScroll();
-    },
-    methods: {
-      queryTypes() {
-        axios.get("/shop-type/list")
-          .then(({data}) => {
-            this.types = data;
-          })
-          .catch(err => {
-            this.$message.error(err)
-          })
-      },
-      queryHotBlogsScroll() {
-        axios.get("/blog/hot?current=" + this.current)
-          .then(({data}) => {
-            data.forEach(b => b.img = b.images.split(",")[0]);
-            this.blogs = this.blogs.concat(data);
-          })
-          .catch(err => {
-            this.$message.error(err)
-          })
-      },
-      addLike(b) {
-        axios.put("/blog/like/" +b.id)
-          .then(({data}) => {
-            this.queryBlogById(b)
-          })
-          .catch(err => {
-            this.$message.error(err)
-          })
-      },
-      queryBlogById(b) {
-        axios.get("/blog/" + b.id)
-          .then(({data}) => {
-            b.liked = data.liked;
-            b.isLike = data.isLike;
-          })
-          .catch(() => {
-            this.$message.error
-            b.liked ++;
-          })
-      },
-      onScroll(e) {
-        let scrollTop = e.target.scrollTop;
-        let offsetHeight = e.target.offsetHeight;
-        let scrollHeight = e.target.scrollHeight;
-        if (scrollTop + offsetHeight > scrollHeight && !this.isReachBottom) {
-          this.isReachBottom = true
-
-          // 再次查询下一页数据
-          this.current++;
-          this.queryHotBlogsScroll();
-        } else {
-          this.isReachBottom = false
-        }
-      },
-      toShopList(id, name) {
-        location.href = "/shop-list.html?type=" + id + "&name=" + name
-      },
-      toBlogDetail(b) {
-        location.href = "/blog-detail.html?id=" + b.id
-      }
-    }
-  })
-</script>
+<script src="./js/location.js"></script>
+<script src="./js/index.js"></script>
 </body>
 </html>
