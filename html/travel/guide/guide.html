@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅游攻略</title>
+    <link rel="stylesheet" href="../css/layui.css">
+    <link rel="stylesheet" href="../css/guide/guide-main.css">
+    <link rel="stylesheet" href="../css/guide/guide-search.css">
+    <link rel="stylesheet" href="../css/element.css">
+    <link href="../css/main.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- 顶部搜索栏 -->
+        <div class="search-container">
+            <div class="search-wrapper">
+                <div class="search-box">
+                    <input type="text" id="searchInput" class="search-input" placeholder="搜索目的地/标题/简介...">
+                    <button class="search-btn" id="searchBtn">
+                        <i class="layui-icon layui-icon-search"></i>
+                    </button>
+                </div>
+                <div class="search-history" id="searchHistory">
+                    <div class="history-list">
+                        <!-- 历史记录将通过 JS 动态插入 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 攻略内容展示区域 -->
+        <div class="content-area">
+            <!-- 攻略卡片列表容器 -->
+            <div class="guide-list">
+                <!-- 单个攻略卡片 -->
+                <div class="guide-card">
+                    <!-- 封面图片 -->
+                    <div class="guide-cover">
+                        <img src="${guide.coverUrl}" alt="攻略封面">
+                        <div class="location-tag">
+                            <i class="layui-icon layui-icon-location"></i>
+                            ${guide.destination}
+                        </div>
+                    </div>
+                    
+                    <!-- 卡片内容 -->
+                    <div class="guide-content">
+                        <h3 class="guide-title">${guide.title}</h3>
+                        <p class="guide-desc">${guide.description}</p>
+                        
+                        <!-- 作者信息和数据 -->
+                        <div class="guide-footer">
+                            <div class="author">
+                                <img src="${guide.authorAvatar}" alt="作者头像" class="avatar">
+                                <span class="name">${guide.authorName}</span>
+                            </div>
+                            <div class="stats">
+                                <span class="views">${guide.viewCount}阅读</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 悬浮添加按钮 -->
+        <a href="publish.html" class="float-button" id="addButton">
+            <span class="plus-icon"></span>
+        </a>
+
+        <!-- 底部导航栏 -->
+        <foot-bar :active-btn="3"></foot-bar>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script src="../js/axios.min.js"></script>
+    <script src="../js/layui.js"></script>
+    <script src="../js/element.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/guide/guide-main.js"></script>
+    <script src="../js/guide/guide-search.js"></script>
+</body>
+</html> 

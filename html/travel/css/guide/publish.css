@@ -1,0 +1,1575 @@
+/* 重置默认样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 根变量 */
+:root {
+    --theme-color: #33B5E5;
+    --text-main: #000000;
+    --text-secondary: #666666;
+    --border-color: #CCCCCC;
+    --bg-light: #F5F5F5;
+    --error-color: #FF4444;
+}
+
+/* 基础样式 */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #FFFFFF;
+    color: var(--text-main);
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+/* 容器样式 */
+.publish-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 头部样式 */
+.publish-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 44px;
+    background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.back-btn {
+    position: absolute;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 15px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.word-count {
+    text-align: right;
+    color: #999;
+    font-size: 12px;
+    margin-top: 4px;
+}
+.page-title {
+    flex: 1;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0;
+    padding-right: 25px; /* 平衡返回按钮的宽度 */
+}
+
+/* 主要内容区域 */
+.publish-content {
+    flex: 1;
+    padding: 54px 16px 70px; /* 为顶部和底部固定元素留出空间 */
+    overflow-y: auto;
+}
+
+/* 基本信息区域 */
+.basic-info {
+    margin-bottom: 20px;
+}
+
+/* 输入组样式 */
+.input-group {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.title-input {
+    width: 100%;
+    height: 35px;
+    padding: 0 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 14px;
+    color: var(--text-main);
+}
+
+.title-input:focus {
+    border-color: var(--theme-color);
+    outline: none;
+}
+
+.intro-input {
+    width: 100%;
+    height: 60px;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 14px;
+    color: var(--text-main);
+    resize: none;
+}
+
+.intro-input:focus {
+    border-color: var(--theme-color);
+    outline: none;
+}
+
+/* 字数统计 */
+.char-count {
+    position: absolute;
+    right: 8px;
+    bottom: -18px;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+/* 地点选择区域 */
+.location-group {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.location-input {
+    flex: 1;
+}
+
+.location-input input {
+    width: 100%;
+    height: 35px;
+    padding: 0 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* 游玩时间选择 */
+.days-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.days-group label {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.days-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.days-btn {
+    width: 35px;
+    height: 35px;
+    border: none;
+    background: var(--bg-light);
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.days-input input {
+    width: 50px;
+    height: 35px;
+    border: none;
+    text-align: center;
+    font-size: 14px;
+    -webkit-appearance: none;
+}
+
+/* 富文本编辑器区域 */
+.editor-section {
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.editor-toolbar {
+    border: 1px solid #e8e8e8;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+    padding: 8px !important;
+    background-color: #fafafa !important;
+    display: flex;
+    gap: 8px;
+}
+
+.editor-content {
+    min-height: 200px;
+    padding: 12px;
+    outline: none;
+}
+
+/* 底部发布按钮 */
+.publish-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12px 16px;
+    background: #FFFFFF;
+    box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.publish-btn {
+    width: 100%;
+    height: 40px;
+    background: var(--theme-color);
+    border: none;
+    border-radius: 4px;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* 错误提示 */
+.error-tip {
+    position: absolute;
+    left: 0;
+    bottom: -18px;
+    font-size: 12px;
+    color: var(--error-color);
+    display: none;
+}
+
+/* 输入框占位符样式 */
+::placeholder {
+    color: #999999;
+}
+
+/* 禁用状态 */
+.publish-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* 加载动画 */
+.loading-spinner {
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #FFFFFF;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 响应式适配 */
+@media screen and (max-width: 320px) {
+    .publish-content {
+        padding: 54px 12px 70px;
+    }
+    
+    .location-group {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .days-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* 地图选点样式 */
+.map-container {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #E8E8E8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+}
+
+/* 已选地点列表 */
+.selected-places {
+    margin-top: 20px;
+    border: 1px solid #E8E8E8;
+    border-radius: 4px;
+}
+
+.places-header {
+    padding: 12px 16px;
+    border-bottom: 1px solid #E8E8E8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FAFAFA;
+}
+
+.places-count {
+    color: #1890FF;
+    font-size: 14px;
+}
+
+.places-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.place-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #F0F0F0;
+}
+
+.place-order {
+    width: 24px;
+    height: 24px;
+    background: #1890FF;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    margin-right: 12px;
+}
+
+.place-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.place-name {
+    font-size: 14px;
+    color: #262626;
+    margin-bottom: 4px;
+}
+
+.place-address {
+    font-size: 12px;
+    color: #8C8C8C;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.delete-btn {
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: none;
+    color: #FF4D4F;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.delete-btn:hover {
+    color: #FF7875;
+}
+
+/* 生成路线按钮 */
+.generate-route-btn {
+    display: block;
+    width: 60%;
+    height: 40px;
+    margin: 20px auto 0;
+    background: var(--theme-color);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.generate-route-btn:disabled {
+    background: #CCCCCC;
+    cursor: not-allowed;
+}
+
+/* 路线规划结果区域 */
+.route-result {
+    margin-top: 20px;
+    padding: 15px;
+    background: #FFFFFF;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+.route-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.route-header h4 {
+    font-size: 16px;
+    color: var(--text-main);
+}
+
+/* 交通方式切换按钮 */
+.transport-modes {
+    display: flex;
+    gap: 8px;
+}
+
+.mode-btn {
+    padding: 6px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: #FFFFFF;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.mode-btn.active {
+    background: var(--theme-color);
+    color: #FFFFFF;
+    border-color: var(--theme-color);
+}
+
+/* 路线详情 */
+.route-details {
+    margin-top: 15px;
+    padding: 15px;
+    background: #FFFFFF;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    display: none;
+}
+
+.route-summary {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: #F5F5F5;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.route-step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.step-number {
+    width: 20px;
+    height: 20px;
+    background: var(--theme-color);
+    color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.step-instruction {
+    flex: 1;
+    font-size: 14px;
+}
+
+.step-distance {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+/* 百度地图容器 */
+#baiduMapContainer {
+    height: 300px;
+    margin: 15px 0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* 操作按钮 */
+.route-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.reset-btn,
+.confirm-btn {
+    padding: 8px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.reset-btn {
+    background: #FFFFFF;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+.confirm-btn {
+    background: var(--theme-color);
+    border: none;
+    color: #FFFFFF;
+}
+
+.reset-btn:hover {
+    background: #F5F5F5;
+}
+
+.confirm-btn:hover {
+    opacity: 0.9;
+}
+
+/* 搜索选项 */
+.search-options {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.nearby-btn {
+    padding: 4px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: #FFFFFF;
+    color: var(--text-secondary);
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.nearby-btn:hover {
+    background: #F5F5F5;
+}
+
+/* 定位按钮 */
+.location-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 4px;
+    background: #FFFFFF;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+/* 地图控件样式 */
+.location-control,
+.clear-control {
+    width: 32px;
+    height: 32px;
+    margin: 5px;
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.location-control:hover,
+.clear-control:hover {
+    background: #f5f5f5;
+}
+
+/* 信息窗口样式 */
+.info-window {
+    padding: 12px;
+    min-width: 200px;
+}
+
+.info-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.info-address {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.info-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.info-actions button {
+    padding: 4px 8px;
+    border: none;
+    border-radius: 4px;
+    background: #ff4d4f;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.info-actions button:hover {
+    opacity: 0.9;
+}
+
+/* 地点列表拖拽样式 */
+.place-item {
+    cursor: move;
+    transition: background-color 0.3s;
+}
+
+.place-item:hover {
+    background: #f5f5f5;
+}
+
+.place-item.dragging {
+    opacity: 0.5;
+    background: #e6f7ff;
+}
+
+/* 连接线样式 */
+.qq-maps-polyline {
+    pointer-events: none;
+}
+
+/* 搜索面板 */
+.search-panel {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 320px;
+    z-index: 1000;
+}
+
+/* 搜索框 */
+.search-box {
+    background: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    padding: 8px;
+}
+
+#searchInput {
+    flex: 1;
+    border: none;
+    padding: 8px;
+    font-size: 14px;
+    outline: none;
+}
+
+.search-btn {
+    background: #1890FF;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 搜索结果列表 */
+.search-results {
+    margin-top: 8px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.search-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #F0F0F0;
+}
+
+.search-item:hover {
+    background: #E6F7FF;
+}
+
+.poi-name {
+    font-size: 14px;
+    color: #262626;
+    margin-bottom: 4px;
+}
+
+.poi-address {
+    font-size: 12px;
+    color: #8C8C8C;
+}
+
+/* 已选地点列表 */
+.selected-places {
+    margin-top: 20px;
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 8px;
+    max-height: 20vh;
+    overflow-y: auto;
+}
+
+.selected-place-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    border-bottom: 1px solid #F0F0F0;
+    height: 35px;
+}
+
+.place-number {
+    width: 20px;
+    height: 20px;
+    background: #1890FF;
+    color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+.place-title {
+    flex: 1;
+    font-size: 14px;
+    color: #262626;
+}
+
+.delete-btn {
+    width: 16px;
+    height: 16px;
+    color: #FF4D4F;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.delete-btn:hover {
+    color: #FF7875;
+}
+
+/* 定位信息窗样式 */
+.location-info {
+    padding: 12px;
+}
+
+.location-title {
+    font-size: 14px;
+    color: #1890ff;
+    font-weight: 500;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.location-detail {
+    font-size: 13px;
+    color: #666666;
+    line-height: 1.5;
+}
+
+.location-detail p {
+    margin: 4px 0;
+}
+
+/* 回到当前位置控件样式 */
+.location-control {
+    margin: 10px;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.location-button {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    background: #fff;
+    cursor: pointer;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.location-button:hover {
+    background: #f0f0f0;
+}
+
+.location-icon {
+    font-size: 20px;
+    color: #1890ff;
+}
+
+/* 添加动效果 */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.location-button:active .location-icon {
+    animation: pulse 0.3s ease;
+}
+
+/* 路由部分容器 */
+.route-section {
+    margin: 20px 0;
+    width: 100%;  /* 确保容器占满宽度 */
+}
+
+/* 标题样式 */
+.section-title {
+    font-size: 18px;
+    font-weight: 600;  /* 加粗 */
+    color: #262626;
+    margin-bottom: 4px;  /* 减小标题和描述的间距 */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 添加左侧装饰线 */
+.section-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 18px;
+    background: #1890FF;
+    border-radius: 2px;
+}
+
+/* 搜索框包装器 */
+.search-wrapper {
+    position: relative;
+    margin-bottom: 15px;
+    width: 100%;  /* 确保搜宽度 */
+}
+
+/* 搜索结果样式 */
+.search-item {
+    padding: 12px 16px;
+    cursor: pointer;
+    border-bottom: 1px solid #F0F0F0;
+    transition: all 0.3s ease;
+}
+
+.search-item:hover {
+    background: #F5F5F5;
+}
+
+.poi-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.poi-icon {
+    font-size: 20px;
+    min-width: 24px;
+    text-align: center;
+}
+
+.poi-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.poi-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #262626;
+    margin-bottom: 4px;
+}
+
+.poi-detail {
+    font-size: 12px;
+    color: #8C8C8C;
+}
+
+.poi-address {
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.poi-category {
+    color: #1890FF;
+}
+
+.poi-distance {
+    font-size: 12px;
+    color: #8C8C8C;
+    white-space: nowrap;
+    margin-left: 8px;
+}
+
+/* 信息窗样式 */
+.info-window {
+    padding: 12px;
+}
+
+.info-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #262626;
+    margin-bottom: 8px;
+}
+
+.info-address {
+    font-size: 13px;
+    color: #595959;
+    margin-bottom: 6px;
+}
+
+.info-tel {
+    font-size: 13px;
+    color: #1890FF;
+    margin-bottom: 12px;
+}
+
+.add-place-btn {
+    background: #1890FF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: 13px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.add-place-btn:hover {
+    background: #40A9FF;
+}
+
+/* 添加保存按钮样式 */
+.save-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.save-btn {
+    background: #1890FF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 24px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.save-btn:hover {
+    background: #40A9FF;
+}
+
+.save-btn:active {
+    background: #096DD9;
+}
+
+/* 发布页面容器 */
+.publish-container {
+    max-width: 1200px;
+    margin: 80px auto 20px; /* 顶部margin增加，为固定标题栏留出空间 */
+    padding: 0 20px;
+}
+
+/* 区域公共样式 */
+.section {
+    background: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+/* 标题样式 */
+.section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #262626;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.title-icon {
+    font-size: 20px;
+}
+
+.title-desc {
+    font-size: 14px;
+    color: #8C8C8C;
+    font-weight: normal;
+    margin-left: 8px;
+}
+
+/* 表单组件样式 */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #262626;
+}
+
+.required::after {
+    content: '*';
+    color: #FF4D4F;
+    margin-left: 4px;
+}
+
+.required-text {
+    color: #FF4D4F;
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.5;
+    transition: all 0.3s;
+}
+
+.form-input:focus {
+    border-color: #40a9ff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.form-input::placeholder {
+    color: #bfbfbf;
+}
+
+/* 发布按钮区域 */
+.publish-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.btn-cancel {
+    padding: 10px 24px;
+    border: 1px solid #D9D9D9;
+    border-radius: 4px;
+    background: #FFFFFF;
+    color: #595959;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-cancel:hover {
+    color: #40A9FF;
+    border-color: #40A9FF;
+}
+
+.btn-publish {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 4px;
+    background: #1890FF;
+    color: #FFFFFF;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-publish:hover {
+    background: #40A9FF;
+}
+
+.btn-publish:active {
+    background: #096DD9;
+}
+
+/* 编辑器容器 */
+.editor-container {
+    height: 500px;
+    border: 1px solid #e8e8e8;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+}
+
+/* 顶部标题栏样式 */
+.page-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: #EBF5FF;
+    box-shadow: 0 2px 8px rgba(24, 144, 255, 0.1);
+    z-index: 1000;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* 返回按钮样式 */
+.back-btn {
+    position: absolute;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 15px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 返回箭头图标样式 */
+.back-arrow {
+    width: 32px;  /* 增加尺寸 */
+    height: 32px;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover .back-arrow path {
+    stroke: #40A9FF;
+}
+
+/* 标题样式 */
+.header-title {
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1890FF;
+    margin: 0;
+}
+
+/* 自定义编辑器主题 */
+.w-e-toolbar {
+    background-color: #fafafa !important;
+    padding: 8px !important;
+}
+
+.w-e-text-container {
+    background-color: #ffffff !important;
+}
+
+/* 区域标题和描述样式 */
+.section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #262626;
+    margin-bottom: 4px;  /* 减小标题和描述的间距 */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.section-desc {
+    font-size: 14px;
+    color: #8C8C8C;
+    margin-bottom: 16px;
+    animation: slideInFromRight 0.5s ease-out;
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.required-text {
+    color: #FF4D4F;
+}
+
+/* Quill 编辑器容器样式 */
+.editor-container {
+    border: 1px solid #e8e8e8;
+    border-radius: 4px;
+    background: #fff;
+}
+
+#editor {
+    height: 400px;  /* 降低编辑器高度 */
+    overflow-y: auto;  /* 启用滚动 */
+}
+
+/* 自定义 Quill 编辑器样式 */
+.ql-toolbar.ql-snow {
+    border-color: #e8e8e8;
+    background: #fafafa;
+    padding: 8px;
+    border-radius: 4px 4px 0 0;
+}
+
+.ql-container.ql-snow {
+    border-color: #e8e8e8;
+    border-radius: 0 0 4px 4px;
+}
+
+.ql-editor {
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 16px;
+}
+
+/* 工具栏按钮悬停效果 */
+.ql-toolbar.ql-snow .ql-picker-label:hover,
+.ql-toolbar.ql-snow .ql-picker-item:hover {
+    color: #1890FF;
+}
+
+.ql-toolbar.ql-snow button:hover {
+    color: #1890FF;
+}
+
+.ql-toolbar.ql-snow button:hover .ql-stroke {
+    stroke: #1890FF;
+}
+
+/* 滚动文字容器 */
+.section-desc-wrapper {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 8px;  /* 减小描述和编辑器的间距 */
+    height: 16px;  /* 降低高度 */
+    position: relative;
+}
+
+.section-desc {
+    color: #8C8C8C;
+    font-size: 12px;  /* 稍微减小字号 */
+    line-height: 1;   /* 确保文字垂直居中 */
+    white-space: nowrap;
+    position: absolute;
+}
+
+/* TinyMCE 编辑器容器样式 */
+.tox.tox-tinymce {
+    border-radius: 4px !important;
+    border-color: #e8e8e8 !important;
+    height: 300px !important; /* 降低编辑器高度 */
+}
+
+.tox .tox-toolbar {
+    background: #fafafa !important;
+    border-bottom: 1px solid #e8e8e8 !important;
+}
+
+.tox .tox-edit-area {
+    background: #ffffff !important;
+}
+
+.tox .tox-edit-area__iframe {
+    background: #ffffff !important;
+}
+
+/* 上传区域样式 */
+.upload-section {
+    background: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    border: 1px solid #e8e8e8;
+}
+
+/* 上传按钮样式 */
+.upload-btn-wrapper {
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.file-input {
+    display: none;
+}
+
+.upload-btn {
+    background: #33B5E5;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0 20px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.upload-btn:hover {
+    background: #40C0E0;
+}
+
+/* 预览区域样式 */
+.image-preview-container {
+    margin-top: 20px;
+    position: relative;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.image-preview-wrapper {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    height: 120px;  /* 固定高度 */
+    margin: 0 40px;  /* 为左右按钮留出空间 */
+}
+
+.image-preview-list {
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: transform 0.3s ease;
+    gap: 20px;  /* 增加图片之间的间距 */
+    height: 100%;
+    padding: 0 10px;  /* 添加内边距 */
+}
+
+.image-item {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;  /* 防止图片被压缩 */
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);  /* 添加阴影效果 */
+}
+
+.layui-upload-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.image-delete {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 24px;  /* 增大删除按钮 */
+    height: 24px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 1;  /* 确保在图片上层 */
+}
+
+.image-delete:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* 滚动按钮样式 */
+.scroll-btn {
+    position: absolute;  /* 改为绝对定位 */
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    z-index: 2;  /* 确保在图片上层 */
+}
+
+.scroll-btn.scroll-left {
+    left: 0;
+}
+
+.scroll-btn.scroll-right {
+    right: 0;
+}
+
+.scroll-btn:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.scroll-btn .arrow {
+    color: #666;
+    font-size: 12px;
+}
+
+.scroll-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    display: none;  /* 禁用时隐藏 */
+}
+
+/* 上传进度样式 */
+.upload-progress {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.progress-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #33B5E5;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 调整输入框高度 */
+.form-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.5;
+    transition: all 0.3s;
+}
+
+/* 标题、出发地、目的地输入框样式 */
+input.form-input {
+    height: 36px;  /* 降低输入框高度 */
+    min-height: unset;  /* 移除最小高度限制 */
+    resize: none;  /* 禁止调整大小 */
+}
+
+/* 简要介绍文本框样式 */
+textarea.form-input {
+    min-height: 80px;  /* 保持文本框较大 */
+    resize: vertical;  /* 允许垂直调整大小 */
+}
+
+/* 输入框获得焦点时的样式 */
+.form-input:focus {
+    border-color: #40a9ff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+/* 输入框占位符样式 */
+.form-input::placeholder {
+    color: #bfbfbf;
+}
+
+.upload-section {
+    margin: 20px 0;
+}
+
+.layui-upload-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.image-item {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.layui-upload-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.image-delete {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.image-delete:hover {
+    background: rgba(0, 0, 0, 0.7);
+}

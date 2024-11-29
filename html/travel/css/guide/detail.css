@@ -1,0 +1,467 @@
+/* 整体布局 */
+body {
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* 顶部返回栏 */
+.header-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    z-index: 1000;
+}
+
+.back-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #333;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.back-btn:hover {
+    background: #f5f5f5;
+}
+
+.back-btn i {
+    font-size: 20px;
+}
+
+/* 主容器 */
+.detail-container {
+    margin-top: 50px;  /* 与header-bar高度一致 */
+    padding: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #fff;
+    min-height: 100vh;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 标题区域 */
+.guide-header {
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.guide-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 15px 0;
+}
+
+.guide-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #999;
+    font-size: 14px;
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.author-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* 基本信息 */
+.guide-info {
+    padding: 20px 0;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    color: #666;
+}
+
+.info-item i {
+    margin-right: 8px;
+    color: #1890ff;
+}
+
+.info-item .label {
+    font-weight: 500;
+    margin-right: 4px;
+}
+
+/* 简介区域 */
+.guide-desc {
+    padding: 20px 0;
+}
+
+.guide-desc h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.desc-content {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* 图片轮播 */
+.guide-images {
+    padding: 20px 0;
+}
+
+.guide-images h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+#imageCarousel {
+    width: 100%;
+    height: 400px;
+}
+
+#imageCarousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 路线地图 */
+.guide-route {
+    padding: 20px 0;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.guide-route h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.guide-route h2 i {
+    color: #33B5E5;
+}
+
+#mapContainer {
+    width: 100%;
+    height: 60vh;  /* 设置为视口高度的60% */
+    min-height: 400px;  /* 最小高度 */
+    max-height: 600px;  /* 最大高度 */
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f5f5f5;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* 地图加载状态 */
+.map-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #666;
+}
+
+.map-loading i {
+    font-size: 24px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* 响应式适配 */
+@media screen and (max-width: 768px) {
+    .detail-container {
+        padding: 15px;
+    }
+
+    .guide-title {
+        font-size: 20px;
+    }
+
+    #imageCarousel,
+    #mapContainer {
+        height: 300px;
+    }
+}
+
+/* 优化加载状态 */
+.loading-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.loading-container .layui-icon {
+    font-size: 40px;
+    color: #1890ff;
+    animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* 阅读量样式 */
+.view-count-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #999;
+    font-size: 14px;
+}
+
+.view-count-wrapper .layui-icon {
+    font-size: 16px;
+}
+
+/* 评论区样式 */
+.guide-comments {
+    margin-top: 30px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+}
+
+.guide-comments h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.comment-input {
+    margin-bottom: 20px;
+}
+
+.comment-input textarea {
+    margin-bottom: 10px;
+    min-height: 100px;
+}
+
+.comment-list {
+    margin-top: 20px;
+}
+
+.comment-item {
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.comment-item:last-child {
+    border-bottom: none;
+}
+
+.comment-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.comment-user img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.comment-user-name {
+    color: #333;
+    font-weight: 500;
+}
+
+.comment-time {
+    color: #999;
+    font-size: 12px;
+}
+
+.comment-content {
+    margin: 8px 0;
+    color: #666;
+    line-height: 1.6;
+}
+
+.comment-actions {
+    display: flex;
+    gap: 15px;
+    color: #999;
+    font-size: 14px;
+}
+
+.comment-action {
+    cursor: pointer;
+}
+
+.comment-action:hover {
+    color: #1E9FFF;
+}
+
+.reply-list {
+    margin-left: 50px;
+    margin-top: 10px;
+    padding-left: 10px;
+    border-left: 2px solid #eee;
+}
+
+.reply-item {
+    padding: 10px 0;
+}
+
+/* 评论折叠相关样式 */
+.reply-expand {
+    margin-left: 50px;
+    padding: 8px 0;
+    color: #1E9FFF;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+}
+
+.reply-expand:hover {
+    opacity: 0.8;
+}
+
+.reply-expand .layui-icon {
+    font-size: 12px;
+}
+
+.hidden-replies {
+    transition: all 0.3s ease;
+}
+
+.reply-to {
+    color: #1E9FFF;
+    font-size: 12px;
+    margin-left: 8px;
+}
+
+/* 优化回复列表样式 */
+.reply-list {
+    margin-left: 50px;
+    margin-top: 10px;
+    padding-left: 15px;
+    border-left: 2px solid #eee;
+}
+
+.reply-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.reply-item:last-child {
+    border-bottom: none;
+}
+
+/* 回复输入框样式优化 */
+.reply-input {
+    margin: 10px 0 10px 50px;
+    padding-left: 15px;
+}
+
+.reply-input .comment-input {
+    margin-bottom: 0;
+}
+
+.reply-input textarea {
+    min-height: 80px;
+}
+
+/* 轮播图样式 */
+.layui-carousel {
+    background: #f5f5f5;
+}
+
+.layui-carousel > [carousel-item] {
+    height: 100%;
+}
+
+.layui-carousel > [carousel-item] > div {
+    height: 100%;
+    background: #fff;
+}
+
+.layui-carousel > [carousel-item] > div > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 轮播图容器样式 */
+.guide-images {
+    margin: 20px 0;
+}
+
+#imageCarousel {
+    width: 100%;
+    height: 400px !important;  /* 确保高度生效 */
+}
+
+/* 轮播图指示器样式优化 */
+.layui-carousel-ind {
+    position: absolute;
+    bottom: 10px;
+}
+
+.layui-carousel-ind ul {
+    background: none;
+}
+
+.layui-carousel-ind li {
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.layui-carousel-ind li.layui-this {
+    background-color: #fff;
+    width: 8px;
+    height: 8px;
+} 

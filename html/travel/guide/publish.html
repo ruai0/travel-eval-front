@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>发布旅游攻略</title>
+    <link rel="stylesheet" href="../css/guide/publish.css">
+    <link href="../css/layui.css" rel="stylesheet">
+
+
+
+</head>
+<body>
+    <!-- 顶部标题栏 -->
+    <div class="page-header">
+        <div class="header-content">
+            <a href="./guide.html" class="back-btn">
+                <svg class="back-arrow" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M31 36L19 24L31 12" stroke="#1890FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+            <h1 class="header-title">发布旅游攻略</h1>
+        </div>
+    </div>
+
+    <!-- 主体内容 -->
+    <div class="publish-container">
+        <!-- 基本信息部分 -->
+        <div class="section">
+            <div class="section-title">
+                <span class="title-icon">📋</span>
+                基本信息
+            </div>
+            
+            <div class="form-group">
+                <label class="required">标题</label>
+                <input type="text" 
+                       class="form-input title-input" 
+                       placeholder="请输入攻略标题（2-50字）"
+                       maxlength="50">
+            </div>
+
+            <div class="form-group">
+                <label class="required">简要介绍</label>
+                <div class="textarea-wrapper">
+                    <textarea 
+                        class="form-input content-input" 
+                        rows="3" 
+                        maxlength="300"
+                        placeholder="简单绍一下这篇攻略的主要内容（10-300字）"
+                        id="briefIntro"
+                    ></textarea>
+                    <div class="word-count">
+                        <span id="currentCount">0</span>/300
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>出发地</label>
+                <input type="text" class="form-input location-input" placeholder="请输入出发地（选填）">
+            </div>
+
+            <div class="form-group">
+                <label>目的地</label>
+                <input type="text" class="form-input location-input" placeholder="请输入目的地（选填）">
+            </div>
+        </div>
+
+        <!-- 路线部分 -->
+        <div class="section">
+            <div class="section-title">
+                <span class="title-icon">📍</span>
+                添加旅游路线
+            </div>
+            <div class="section-desc-wrapper">
+                <div class="section-desc">（必填）在地图上选择最多15个景点规划路线</div>
+            </div>
+            
+            <!-- 地图选点区域 -->
+            <div class="map-container">
+                <iframe id="mapPicker" width="100%" height="100%" frameborder="0" scrolling="no" src="about:blank"></iframe>
+            </div>
+
+            <!-- 选地点列表 -->
+            <div class="selected-places">
+                <div class="places-header">
+                    <span>已选地点（最多15个）</span>
+                    <span class="places-count">0/15</span>
+                </div>
+                <div id="placesList" class="places-list"></div>
+            </div>
+        </div>
+
+        <!-- 图片上传部分 -->
+        <div class="section">
+            <div class="section-title">
+                <span class="title-icon">📸</span>
+                添加图片
+            </div>
+            <div class="section-desc-wrapper">
+                <div class="section-desc required-text">（必填）上传旅行照片</div>
+            </div>
+            
+            <div class="upload-section">
+                <!-- 上传按钮 -->
+                <button type="button" class="layui-btn" id="uploadBtn">
+                    <i class="layui-icon layui-icon-upload"></i> 上传图片
+                </button>
+                
+                <!-- 图片预览区域 -->
+                <div class="image-preview-container">
+                    <button class="scroll-btn scroll-left" id="scrollLeft">
+                        <span class="arrow">&#9664;</span>
+                    </button>
+                    
+                    <div class="image-preview-wrapper">
+                        <div class="image-preview-list" id="imagePreview"></div>
+                    </div>
+
+                    <button class="scroll-btn scroll-right" id="scrollRight">
+                        <span class="arrow">&#9654;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 发布按钮 -->
+        <div class="publish-actions">
+            <button class="btn-publish" id="publishBtn">发布攻略</button>
+        </div>
+    </div>
+
+    <!-- JavaScript 文件 -->
+    <script type="text/javascript" src="https://apis.map.qq.com/tools/geolocation/min?key=NMIBZ-JAQLZ-WGYX7-ZYKXV-K5IX3-LGFKM&referer=travel"></script>
+    <script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp&key=NMIBZ-JAQLZ-WGYX7-ZYKXV-K5IX3-LGFKM"></script>
+    <script src="https://apis.map.qq.com/tools/geolocation/min?key=NMIBZ-JAQLZ-WGYX7-ZYKXV-K5IX3-LGFKM&referer=travel"></script>
+    <script src="../js/axios.min.js"></script>
+    <script src="../js/layui.js"></script>
+    <script src="../js/guide/publish_map.js"></script>
+    <script src="../js/guide/publish.js" type="module"></script>
+   
+    <script>
+    // 等待页面和layui都加载完成
+    layui.use(['upload', 'layer', 'jquery'], function(){
+    var upload = layui.upload;
+    var layer = layui.layer;
+    var $ = layui.jquery;
+    
+    // 初始化滚动相关变量
+    var currentScroll = 0;
+    var scrollAmount = 200; // 每次滚动的距离（图片宽度 + 间距）
+    
+    // 更新滚动按钮状态
+    function updateScrollButtons() {
+        var container = $('.image-preview-wrapper');
+        var list = $('#imagePreview');
+        var maxScroll = list.width() - container.width();
+        
+        $('#scrollLeft').prop('disabled', currentScroll <= 0);
+        $('#scrollRight').prop('disabled', currentScroll >= maxScroll);
+    }
+    
+    // 绑定滚动按钮事件
+    $('#scrollLeft').click(function() {
+        currentScroll = Math.max(0, currentScroll - scrollAmount);
+        $('#imagePreview').css('transform', `translateX(-${currentScroll}px)`);
+        updateScrollButtons();
+    });
+    
+    $('#scrollRight').click(function() {
+        var container = $('.image-preview-wrapper');
+        var list = $('#imagePreview');
+        var maxScroll = list.width() - container.width();
+        currentScroll = Math.min(maxScroll, currentScroll + scrollAmount);
+        $('#imagePreview').css('transform', `translateX(-${currentScroll}px)`);
+        updateScrollButtons();
+    });
+    
+    // 渲染上传组件
+    var uploadInst = upload.render({
+        elem: '#uploadBtn',
+        url: '/api/upload/image',
+        accept: 'images',
+        acceptMime: 'image/*',
+        multiple: true,
+        number: 10,
+        size: 5120,
+        crossDomain: true,
+        withCredentials: true,
+        
+        choose: function(obj){
+            obj.preview(function(index, file, result){
+                $('#imagePreview').append(`
+                    <div class="image-item" id="upload-${index}">
+                        <img src="${result}" alt="${file.name}" class="layui-upload-img">
+                        <div class="image-delete" data-index="${index}">
+                            <i class="layui-icon layui-icon-close"></i>
+                        </div>
+                    </div>
+                `);
+                updateScrollButtons();
+            });
+        },
+        
+        before: function(obj){
+            layer.load();
+        },
+        
+        done: function(res, index, upload){
+            layer.closeAll('loading');
+            
+            
+            if(res.code === 200){
+                var fullImageUrl =  res.data;
+                $('#upload-'+index).attr('data-url', res.data);
+                $('#upload-'+index + ' img').attr('src', 'api/'+fullImageUrl);
+                layer.msg('上传成功');
+                updateScrollButtons();
+            } else {
+                layer.msg(res.message || '上传失败');
+                $('#upload-'+index).remove();
+                updateScrollButtons();
+            }
+        },
+        
+        error: function(index, upload){
+            layer.closeAll('loading');
+            layer.msg('上传失败，请重试');
+            $('#upload-'+index).remove();
+            updateScrollButtons();
+        }
+    });
+    
+    // 删除图片
+    $(document).on('click', '.image-delete', function(){
+        var index = $(this).data('index');
+        var item = $('#upload-'+index);
+        var imageUrl = item.attr('data-url');
+        
+        if(imageUrl) {
+            $.ajax({
+                url: '/api/upload/image',
+                method: 'DELETE',
+                contentType: 'application/json',
+                data: JSON.stringify({ url: imageUrl }),
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success: function(res){
+                    if(res.code === 200){
+                        item.remove();
+                        layer.msg('删除成功');
+                        updateScrollButtons();
+                    } else {
+                        layer.msg(res.message || '删除失败');
+                    }
+                },
+                error: function(){
+                    layer.msg('删除失败，请重试');
+                }
+            });
+        } else {
+            item.remove();
+            updateScrollButtons();
+        }
+    });
+    
+    // 初始化滚动按钮状态
+    updateScrollButtons();
+});</script>
+</body>
+</html>

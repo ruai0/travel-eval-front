@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>攻略详情</title>
+    <link rel="stylesheet" href="../css/layui.css">
+    <link rel="stylesheet" href="../css/guide/detail.css">
+</head>
+<body>
+    <!-- 顶部返回栏 -->
+    <div class="header-bar">
+        <div class="back-btn" onclick="window.location.href='./guide.html'">
+            <i class="layui-icon layui-icon-left"></i>
+            <span>返回</span>
+        </div>
+    </div>
+
+    <!-- 主要内容区域 -->
+    <div class="detail-container">
+        <!-- 标题区域 -->
+        <div class="guide-header">
+            <h1 class="guide-title"></h1>
+            <div class="guide-meta">
+                <div class="author-info">
+                    <img class="author-avatar" src="" alt="作者头像">
+                    <span class="author-name"></span>
+                </div>
+                <div class="meta-right">
+                    <span class="publish-time"></span>
+                    <span class="view-count"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 基本信息区域 -->
+        <div class="guide-info">
+            <div class="info-item">
+                <i class="layui-icon layui-icon-location"></i>
+                <span class="label">出发地：</span>
+                <span class="departure"></span>
+            </div>
+            <div class="info-item">
+                <i class="layui-icon layui-icon-location"></i>
+                <span class="label">目的地：</span>
+                <span class="destination"></span>
+            </div>
+        </div>
+
+        <!-- 简介区域 -->
+        <div class="guide-desc">
+            <h2>攻略简介</h2>
+            <p class="desc-content"></p>
+        </div>
+
+        <!-- 图片轮播区域 -->
+        <div class="guide-images">
+            <h2>旅行图集</h2>
+            <div class="layui-carousel" id="imageCarousel">
+                <div carousel-item>
+                    <!-- 图片将通过JS动态添加 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 路线地图区域 -->
+        <div class="guide-route">
+            <h2>
+                <i class="layui-icon layui-icon-location"></i>
+                行程路线
+            </h2>
+            <div id="mapContainer"></div>
+        </div>
+
+        <!-- 评论区域 -->
+        <div class="guide-comments">
+            <h2>
+                <i class="layui-icon layui-icon-dialogue"></i>
+                评论区
+            </h2>
+            <div class="comment-input">
+                <textarea placeholder="说点什么吧..." class="layui-textarea"></textarea>
+                <button class="layui-btn" onclick="window.guideDetail.submitComment()">发表评论</button>
+            </div>
+            <div class="comment-list">
+                <!-- 评论列表将通过JS动态渲染 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 脚本引入 -->
+    <script src="../js/layui.js"></script>
+    <script src="../js/axios.min.js"></script>
+    <script src="https://map.qq.com/api/gljs?v=1.exp&key=NMIBZ-JAQLZ-WGYX7-ZYKXV-K5IX3-LGFKM"></script>
+    <script src="../js/guide/detail-main.js"></script>
+    <script src="../js/guide/detail-map.js"></script>
+</body>
+</html> 
