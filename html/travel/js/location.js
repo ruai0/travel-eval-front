@@ -79,10 +79,11 @@ class LocationService {
             // 发送到后端接口
             const response = await axios.post('/visit/record', visitRecord);
             
-            if (response.data.code === 200) {
+            // 检查响应是否成功，不再依赖特定的code字段
+            if (response.data && response.data.success) {
                 console.log('Location info reported successfully');
             } else {
-                console.warn('Failed to report location info:', response.data.msg);
+                console.warn('Failed to report location info:', response.data?.msg || 'Unknown error');
             }
         } catch (error) {
             console.error('Failed to report location info:', error);

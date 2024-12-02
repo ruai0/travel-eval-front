@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ea8880eb-0b5c-4f6c-8c8e-621730b02afd" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../NoteFromVisit/src/main/java/com/sengang/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NoteFromVisit/src/main/java/com/sengang/config/RedisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NoteFromVisit/src/main/java/com/sengang/service/impl/ShopServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NoteFromVisit/src/main/java/com/sengang/service/impl/ShopServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NoteFromVisit/src/main/java/com/sengang/service/impl/VoucherOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NoteFromVisit/src/main/java/com/sengang/service/impl/VoucherOrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NoteFromVisit/src/main/resources/applicaiton-local.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../NoteFromVisit/src/main/resources/applicaiton-local.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NoteFromVisit/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../NoteFromVisit/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NoteFromVisit/src/main/resources/application-local.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../NoteFromVisit/src/main/resources/application-local.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NoteFromVisit/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../NoteFromVisit/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NoteFromVisit/target/classes/applicaiton-local.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../NoteFromVisit/target/classes/applicaiton-local.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NoteFromVisit/target/classes/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../NoteFromVisit/target/classes/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NoteFromVisit/target/classes/application-local.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../NoteFromVisit/target/classes/application-local.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NoteFromVisit/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../NoteFromVisit/target/classes/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hm-dianping/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../hm-dianping/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/conf/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/hmdp/blog-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/hmdp/blog-detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/hmdp/blog-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/hmdp/blog-edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/hmdp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/hmdp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/hmdp/info-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/hmdp/info-edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/hmdp/info.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/hmdp/info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/hmdp/js/footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/html/hmdp/js/footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/hmdp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/hmdp/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/hmdp/login2.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/hmdp/login2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/hmdp/other-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/hmdp/other-info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/hmdp/shop-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/hmdp/shop-detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/hmdp/shop-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/hmdp/shop-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/nginx.pid" beforeDir="false" afterPath="$PROJECT_DIR$/logs/nginx.pid" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2p3mGgTO283R6Xko4DjzHppZf1T" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;J:\\it_language\\IDE\\webstrom\\WebStorm 2024.1.5\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.18034.50" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ea8880eb-0b5c-4f6c-8c8e-621730b02afd" name="Changes" comment="" />
+      <created>1732003039569</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1732003039569</updated>
+      <workItem from="1732003041064" duration="7178000" />
+      <workItem from="1732096497807" duration="2517000" />
+      <workItem from="1732172928748" duration="649000" />
+      <workItem from="1732174372621" duration="333000" />
+      <workItem from="1732262982362" duration="6143000" />
+      <workItem from="1732366543615" duration="1250000" />
+      <workItem from="1732371789521" duration="821000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

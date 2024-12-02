@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地图</title>
+    <link rel="stylesheet" href="./css/element.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/map.css">
+    <!-- 腾讯地图基础组件 -->
+    <script charset="utf-8" src="https://map.qq.com/api/gljs?v=1.exp&key=NMIBZ-JAQLZ-WGYX7-ZYKXV-K5IX3-LGFKM"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 地图容器 -->
+        <div id="map-container"></div>
+        
+        <!-- 定位按钮 -->
+        <div class="location-btn" 
+             :class="{ 'locating': isLocating }" 
+             @click.stop="locateMe"
+             :title="isLocating ? '正在定位...' : '定位到当前位置'">
+            <i :class="isLocating ? 'el-icon-loading' : 'el-icon-location-information'"></i>
+        </div>
+
+        <!-- 底部导航栏 -->
+        <foot-bar :active-btn="2"></foot-bar>
+    </div>
+
+    <script src="./js/vue.js"></script>
+    <script src="./js/element.js"></script>
+    <script src="./js/axios.min.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/footer.js"></script>
+    <script src="./js/map.js"></script>
+</body>
+</html>
