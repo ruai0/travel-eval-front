@@ -61,3 +61,19 @@ input[type="radio"]:checked + label::before {
 input[type="radio"] {
     opacity: 0;
 }
+
+.input-container {
+    margin-top: 3px;
+    display: flex;
+    align-items: center; /* 垂直居中对齐 */
+}
+
+.input-container .el-input {
+    flex: 1; /* 占据剩余空间 */
+    margin-right: 10px; /* 可选：增加间距 */
+}
+
+#captchaCanvas {
+    flex: 0 0 auto; /* 不收缩，不增长 */
+    width: 100px; /* 设置固定宽度 */
+}

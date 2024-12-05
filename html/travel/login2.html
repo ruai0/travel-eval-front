@@ -6,6 +6,7 @@
   <title>旅游点评</title>
   <link href="./css/login.css" rel="stylesheet">
   <!-- 引入样式 -->
+  <link href="./css/main.css" rel="stylesheet">
   <link rel="stylesheet" href="./css/element.css">
 
   <style type="text/css">
@@ -15,6 +16,11 @@
       }
       .el-input__inner:focus {
           border: 1px solid #F63;
+      }
+      #captchaCanvas {
+        cursor: pointer;
+        vertical-align: middle;
+        margin-left: 10px;
       }
   </style>
 </head>
@@ -27,11 +33,16 @@
     </div>
     <div class="content">
       <div class="login-form" >
-        <el-input placeholder="请输入手机号" v-model="form.phone">
+        <el-input placeholder="请输入账号" v-model="form.userName">
         </el-input>
         <div style="height: 5px"></div>
         <el-input placeholder="请输入密码" v-model="form.password">
         </el-input>
+        <div class="input-container">
+          <el-input placeholder="请输入验证码" v-model="form.code">
+          </el-input>
+          <canvas id="captchaCanvas" @click="handleCode" width="100" height="40"></canvas>
+        </div>
         <div style="text-align: center; color: #8c939d;margin: 5px 0"><a href="javascript:void(0)">忘记密码</a></div>
         <el-button @click="login" style="width: 100%; background-color:#f63; color: #fff;">登录</el-button>
         <div style="text-align: right; color:#333333; margin: 5px 0"><a href="/login.html">验证码登录</a></div>
@@ -58,12 +69,16 @@
     el: "#app",
     data: {
       radio: "",
-      form:{
+      form: {
+        code: ""
       }
+    },
+    created() {
+      this.handleCode();
     },
     methods: {
       login(){
-        axios.post("/user/login", this.form)
+        axios.post("/user/loginByName", this.form)
           .then(({data}) => {
             if(data){
               // 保存用户信息到session
@@ -76,9 +91,84 @@
       },
       goBack(){
         history.back();
+      },
+      handleCode() {
+        axios.get('/user/getCode')
+          .then(({data}) => {
+            this.code = data;
+            this.$nextTick(() => {
+              this.drawCode();
+            });
+          })
+          .catch(err => this.$message.error('获取验证码失败'))
+      },
+      drawCode() {
+        const canvas = document.getElementById('captchaCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        // 清空画布
+        ctx.clearRect(0, 0, 100, 40);
+        
+        // 绘制背景
+        ctx.fillStyle = this.randomColor(180, 230);
+        ctx.fillRect(0, 0, 100, 40);
+        
+        // 绘制文字
+        ctx.font = 'bold 24px Arial';
+        ctx.textBaseline = 'middle';
+        
+        // 随机倾斜文字
+        for(let i = 0; i < this.code.length; i++) {
+          ctx.fillStyle = this.randomColor(50, 160);
+          ctx.shadowOffsetX = this.randomNum(-3, 3);
+          ctx.shadowOffsetY = this.randomNum(-3, 3);
+          ctx.shadowBlur = 2;
+          ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+          
+          const x = 20 + i * 15;
+          const y = 20;
+          const deg = this.randomNum(-30, 30);
+          
+          // 设置旋转角度
+          ctx.translate(x, y);
+          ctx.rotate(deg * Math.PI / 180);
+          ctx.fillText(this.code[i], 0, 0);
+          // 恢复旋转角度
+          ctx.rotate(-deg * Math.PI / 180);
+          ctx.translate(-x, -y);
+        }
+        
+        // 绘制干扰线
+        for(let i = 0; i < 4; i++) {
+          ctx.strokeStyle = this.randomColor(40, 180);
+          ctx.beginPath();
+          ctx.moveTo(this.randomNum(0, 100), this.randomNum(0, 40));
+          ctx.lineTo(this.randomNum(0, 100), this.randomNum(0, 40));
+          ctx.stroke();
+        }
+        
+        // 绘制干扰点
+        for(let i = 0; i < 20; i++) {
+          ctx.fillStyle = this.randomColor(0, 255);
+          ctx.beginPath();
+          ctx.arc(this.randomNum(0, 100), this.randomNum(0, 40), 1, 0, 2 * Math.PI);
+          ctx.fill();
+        }
+      },
+      // 生成随机颜色
+      randomColor(min, max) {
+        const r = this.randomNum(min, max);
+        const g = this.randomNum(min, max);
+        const b = this.randomNum(min, max);
+        return `rgb(${r},${g},${b})`;
+      },
+      // 生成随机数
+      randomNum(min, max) {
+        return Math.floor(Math.random() * (max - min) + min);
       }
     }
   })
+
 </script>
 </body>
 </html>

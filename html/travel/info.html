@@ -185,7 +185,7 @@
         location.href = 'info-edit.html'
       },
       logout() {
-        axios.post("/user/logout")
+        axios.get("/user/logout")
           .then(() => {
             // 清理session
             sessionStorage.removeItem("token")
