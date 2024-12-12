@@ -65,12 +65,15 @@
 <script src="./js/common.js"></script>
 <script>
 
+  let captchaKey = '';
+
   const app = new Vue({
     el: "#app",
     data: {
       radio: "",
       form: {
-        code: ""
+        code: "",
+        captchaKey:""
       }
     },
     created() {
@@ -95,8 +98,10 @@
       handleCode() {
         axios.get('/user/getCode')
           .then(({data}) => {
-            this.code = data;
+            this.code = data.code;
+            captchaKey = data.key;
             this.$nextTick(() => {
+
               this.drawCode();
             });
           })
