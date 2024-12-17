@@ -4,32 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea8880eb-0b5c-4f6c-8c8e-621730b02afd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../NoteFromVisit/src/main/java/com/sengang/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NoteFromVisit/src/main/java/com/sengang/config/RedisConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NoteFromVisit/src/main/java/com/sengang/service/impl/ShopServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NoteFromVisit/src/main/java/com/sengang/service/impl/ShopServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NoteFromVisit/src/main/java/com/sengang/service/impl/VoucherOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NoteFromVisit/src/main/java/com/sengang/service/impl/VoucherOrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NoteFromVisit/src/main/resources/applicaiton-local.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../NoteFromVisit/src/main/resources/applicaiton-local.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NoteFromVisit/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../NoteFromVisit/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NoteFromVisit/src/main/resources/application-local.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../NoteFromVisit/src/main/resources/application-local.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NoteFromVisit/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../NoteFromVisit/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NoteFromVisit/target/classes/applicaiton-local.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../NoteFromVisit/target/classes/applicaiton-local.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NoteFromVisit/target/classes/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../NoteFromVisit/target/classes/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NoteFromVisit/target/classes/application-local.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../NoteFromVisit/target/classes/application-local.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NoteFromVisit/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../NoteFromVisit/target/classes/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hm-dianping/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../hm-dianping/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/conf/nginx.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/hmdp/blog-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/hmdp/blog-detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/hmdp/blog-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/hmdp/blog-edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/hmdp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/hmdp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/hmdp/info-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/hmdp/info-edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/hmdp/info.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/hmdp/info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/hmdp/js/footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/html/hmdp/js/footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/hmdp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/hmdp/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/hmdp/login2.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/hmdp/login2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/hmdp/other-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/hmdp/other-info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/hmdp/shop-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/hmdp/shop-detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/hmdp/shop-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/hmdp/shop-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/nginx.pid" beforeDir="false" afterPath="$PROJECT_DIR$/logs/nginx.pid" afterDir="false" />
+    <list default="true" id="ea8880eb-0b5c-4f6c-8c8e-621730b02afd" name="Changes" comment="feat:管理后端完善和商户后端实现">
+      <change afterPath="$PROJECT_DIR$/../imgs/0ec81e5d-a233-4840-aa09-53b3eca55fff.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../imgs/1608f41f-5624-4975-ac74-d0edd353d834.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../imgs/1f1b9421-c4d4-4f98-ad9c-20cc1dae588e.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../imgs/2a4013c0-742a-4161-be3e-ef17b2d906f1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../imgs/2b9edb26-3880-4e4c-a9db-906d9e1bb77d.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../imgs/568babc8-6a20-4a34-b053-6fc2cc07426b.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../imgs/58fb757c-e43a-40ee-9f8d-1dbbe4652df1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../imgs/5e43fa86-06ef-415a-a4b1-ef77a0e77f9e.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../imgs/5e6e9f30-6179-4d88-a53c-74d5d8c95c7a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../imgs/60344784-2431-4c63-b721-614ca0ff0544.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../imgs/6511256d-98aa-43e4-bd60-fce52fe2296f.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../imgs/79691087-de8e-4da4-a742-142b71d7eec0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../imgs/8baca639-fedc-46db-91d2-f860680847c3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../imgs/af2c9a5d-f880-4eac-9a22-5a2845d485f1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../imgs/b1908368-0d39-41b3-8353-3aabd41a6923.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../imgs/d5c495be-f967-4008-b5eb-5e43751b7ef7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../imgs/de702683-99cc-4fee-a086-b3fc802c97bb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../imgs/e391e8d5-031b-4ab3-925b-e6254b1f8018.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../imgs/e55da009-6dae-4507-8613-8cff3936fa1a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../imgs/ec1f8f8c-b483-4181-88ce-3c80778ad80f.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/admin" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/error.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/error.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,24 +56,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;J:\\it_language\\IDE\\webstrom\\WebStorm 2024.1.5\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "vcs.Git",
+    "ts.external.directory.path": "J:\\it_language\\IDE\\webstrom\\WebStorm 2024.1.5\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.18034.50" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
       </set>
     </attachedChunks>
   </component>
@@ -90,6 +94,8 @@
       <workItem from="1732262982362" duration="6143000" />
       <workItem from="1732366543615" duration="1250000" />
       <workItem from="1732371789521" duration="821000" />
+      <workItem from="1733987207493" duration="236000" />
+      <workItem from="1733987450793" duration="532000" />
     </task>
     <servers />
   </component>
@@ -101,7 +107,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

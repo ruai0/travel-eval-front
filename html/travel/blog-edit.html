@@ -78,6 +78,7 @@
 <script src="./js/footer.js"></script>
 <script>
 
+
   const app = new Vue({
     el: "#app",
     data() {
@@ -96,9 +97,10 @@
       this.queryShops();
     },
     methods: {
+      
       queryShops() {
         axios.get("/shop/of/name?name=" + this.shopName)
-          .then(({data}) => this.shops = data)
+          .then(({response}) => this.shops = response.data.data)
           .catch(this.$message.error)
       },
       selectShop(s) {
@@ -120,12 +122,12 @@
         let file = this.$refs.fileInput.files[0];
         let formData = new FormData();
         formData.append("file", file);
-        const config = {
+          const config = {
           headers: {"Content-Type": "multipart/form-data;boundary=" + new Date().getTime()}
         };
         axios
           .post("/upload/blog", formData, config)
-          .then(({data}) => this.fileList.push('/imgs' + data))
+          .then(({response}) => this.fileList.push('/imgs' + response.data.data))
           .catch(this.$message.error);
       },
       deletePic(i) {

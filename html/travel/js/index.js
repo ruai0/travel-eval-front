@@ -77,10 +77,10 @@ const app = new Vue({
                     current: this.current
                 };
                 
-                if (this.locationService?.lastLocation?.city) {
-                    const city = this.locationService.lastLocation.city.replace(/市$/, '');
-                    params.location = city;
-                }
+                // if (this.locationService?.lastLocation?.city) {
+                //     const city = this.locationService.lastLocation.city.replace(/市$/, '');
+                //     params.location = city;
+                // }
 
                 if (this.searchKeyword) {
                     params.keyword = this.searchKeyword;

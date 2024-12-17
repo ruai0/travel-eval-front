@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>写评价</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="./css/element.css">
+    <link href="./css/main.css" rel="stylesheet">
+    <style>
+        .comment-container {
+            padding: 15px;
+            background: #fff;
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .header-back-btn {
+            width: 24px;
+            color: #ff6633;
+            font-size: 20px;
+        }
+        
+        .header-title {
+            flex: 1;
+            text-align: center;
+            font-size: 18px;
+        }
+        
+        .shop-info {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .shop-name {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .rate-section {
+            margin: 20px 0;
+        }
+        
+        .rate-title {
+            margin-bottom: 10px;
+            color: #666;
+        }
+        
+        .content-section {
+            margin: 20px 0;
+        }
+        
+        .image-uploader {
+            margin: 20px 0;
+        }
+        
+        .image-preview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .preview-item {
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+        
+        .preview-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        
+        .delete-btn {
+            position: absolute;
+            right: -6px;
+            top: -6px;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            border-radius: 50%;
+            padding: 2px;
+            cursor: pointer;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="header">
+            <div class="header-back-btn" @click="goBack">
+                <i class="el-icon-arrow-left"></i>
+            </div>
+            <div class="header-title">写评价</div>
+        </div>
+        
+        <div class="comment-container">
+            <div class="shop-info">
+                <div class="shop-name">{{shopInfo.name}}</div>
+                <div class="order-info">订单号：{{orderId}}</div>
+            </div>
+            
+            <div class="rate-section">
+                <div class="rate-title">为商家打分</div>
+                <el-rate
+                    v-model="commentForm.score"
+                    :colors="['#99A9BF', '#F7BA2A', '#FF9900']"
+                    show-text
+                    :texts="['很差', '较差', '一般', '不错', '很好']">
+                </el-rate>
+            </div>
+            
+            <div class="content-section">
+                <el-input
+                    type="textarea"
+                    :rows="4"
+                    placeholder="写下你的评价，让更多人看到..."
+                    v-model="commentForm.content"
+                    maxlength="500"
+                    show-word-limit>
+                </el-input>
+            </div>
+            
+            <div class="image-uploader">
+                <el-upload
+                    action="/api/upload/image"
+                    list-type="picture-card"
+                    :on-preview="handlePictureCardPreview"
+                    :on-remove="handleRemove"
+                    :on-success="handleUploadSuccess"
+                    :before-upload="beforeUpload"
+                    :limit="6"
+                    accept="image/*">
+                    <i class="el-icon-plus"></i>
+                </el-upload>
+                <el-dialog :visible.sync="dialogVisible">
+                    <img width="100%" :src="dialogImageUrl" alt="">
+                </el-dialog>
+            </div>
+            
+            <el-button type="primary" class="submit-btn" 
+                       @click="submitComment" 
+                       :loading="submitting">
+                发布评价
+            </el-button>
+        </div>
+    </div>
+    
+    <script src="./js/vue.js"></script>
+    <script src="./js/axios.min.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/element.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                orderId: '',
+                shopId: '',
+                shopInfo: {},
+                commentForm: {
+                    shopId: '',
+                    userId: '',
+                    userName: '',
+                    userIcon: '',
+                    content: '',
+                    score: 5,
+                    images: [],
+                    createTime: null
+                },
+                dialogImageUrl: '',
+                dialogVisible: false,
+                submitting: false
+            },
+            created() {
+                // 获取URL参数
+                const urlParams = new URLSearchParams(window.location.search);
+                this.orderId = urlParams.get('orderId');
+                this.shopId = urlParams.get('shopId');
+                this.commentForm.shopId = this.shopId;
+                
+                // 获取商家信息
+                this.getShopInfo();
+                // 获取用户信息
+                this.getUserInfo();
+            },
+            methods: {
+                goBack() {
+                    history.back();
+                },
+                
+                getUserInfo() {
+                    axios.get('/user/me')
+                        .then(({data}) => {
+                            if(data) {
+                                this.commentForm.userId = data.id;
+                                this.commentForm.userName = data.nickName;
+                                this.commentForm.userIcon = data.icon;
+                            }
+                        })
+                        .catch(this.$message.error);
+                },
+                
+                getShopInfo() {
+                    axios.get(`/shop/${this.shopId}`)
+                        .then((response) => {
+                            if(response.code === 200) {
+                                this.shopInfo = response.data.shop;
+                            }
+                        })
+                        .catch(this.$message.error);
+                },
+                
+                handleRemove(file, fileList) {
+                    const index = this.commentForm.images.indexOf(file.url);
+                    if (index !== -1) {
+                        this.commentForm.images.splice(index, 1);
+                    }
+                },
+                
+                handlePictureCardPreview(file) {
+                    this.dialogImageUrl = file.url;
+                    this.dialogVisible = true;
+                },
+                
+                handleUploadSuccess(response, file, fileList) {
+                    if(response.success) {
+                        this.commentForm.images.push(response.data);
+                    } else {
+                        this.$message.error('图片上传失败');
+                    }
+                },
+                
+                beforeUpload(file) {
+                    const isImage = file.type.startsWith('image/');
+                    const isLt2M = file.size / 1024 / 1024 < 2;
+
+                    if (!isImage) {
+                        this.$message.error('只能上传图片文件!');
+                        return false;
+                    }
+                    if (!isLt2M) {
+                        this.$message.error('图片大小不能超过 2MB!');
+                        return false;
+                    }
+                    return true;
+                },
+                
+                submitComment() {
+                    if(!this.commentForm.content.trim()) {
+                        this.$message.warning('请输入评价内容');
+                        return;
+                    }
+                    
+                    this.submitting = true;
+                    axios.post('/shop/create/comment', {
+                        orderId: this.orderId,
+                        shopId: this.shopId,
+                        score: this.commentForm.score,
+                        content: this.commentForm.content,
+                        images: this.commentForm.images.join(',')
+                    })
+                    .then((response) => {
+                        if(response.code === 200) {
+                            this.$message.success('评价成功');
+                            setTimeout(() => {
+                                location.href = '/info.html';
+                            }, 1500);
+                        } else {
+                            this.$message.error(response.message || '评价失败');
+                        }
+                    })
+                    .catch(err => {
+                        this.$message.error('评价失败');
+                        console.error(err);
+                    })
+                    .finally(() => {
+                        this.submitting = false;
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>

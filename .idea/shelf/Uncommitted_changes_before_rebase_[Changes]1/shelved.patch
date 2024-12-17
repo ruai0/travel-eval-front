@@ -1,0 +1,234 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"ea8880eb-0b5c-4f6c-8c8e-621730b02afd\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/../.idea/uiDesigner.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/0ec81e5d-a233-4840-aa09-53b3eca55fff.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/1608f41f-5624-4975-ac74-d0edd353d834.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/1f1b9421-c4d4-4f98-ad9c-20cc1dae588e.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/2a4013c0-742a-4161-be3e-ef17b2d906f1.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/2b9edb26-3880-4e4c-a9db-906d9e1bb77d.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/568babc8-6a20-4a34-b053-6fc2cc07426b.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/58fb757c-e43a-40ee-9f8d-1dbbe4652df1.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/5e43fa86-06ef-415a-a4b1-ef77a0e77f9e.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/5e6e9f30-6179-4d88-a53c-74d5d8c95c7a.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/60344784-2431-4c63-b721-614ca0ff0544.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/6511256d-98aa-43e4-bd60-fce52fe2296f.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/79691087-de8e-4da4-a742-142b71d7eec0.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/8baca639-fedc-46db-91d2-f860680847c3.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/af2c9a5d-f880-4eac-9a22-5a2845d485f1.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/b1908368-0d39-41b3-8353-3aabd41a6923.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/d5c495be-f967-4008-b5eb-5e43751b7ef7.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/de702683-99cc-4fee-a086-b3fc802c97bb.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/e391e8d5-031b-4ab3-925b-e6254b1f8018.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/e55da009-6dae-4507-8613-8cff3936fa1a.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/ec1f8f8c-b483-4181-88ce-3c80778ad80f.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/html/admin/html/shop/add.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/vcs.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/vcs.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/html/comment/list.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/html/comment/list.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/html/dashboard.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/html/dashboard.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/html/guide/editor.html\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/html/guide/list.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/html/guide/list.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/html/permission/index.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/html/permission/index.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/html/profile/index.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/html/profile/index.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/html/profile/password.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/html/profile/password.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/html/role/index.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/html/role/index.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/html/user/list.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/html/user/list.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/index.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/index.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/js/comment.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/js/comment.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/js/dashboard.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/js/dashboard.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/js/guide-editor.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/js/guide-editor.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/js/guide.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/js/guide.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/js/index.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/js/index.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/js/user.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/js/user.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/login.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/login.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/util/token-interceptor.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/util/token-interceptor.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/travel/js/map.js\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/travel/login2.html\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/logs/access.log\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/logs/access.log\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"HTML File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\r\n    <option name=\"ROOT_SYNC\" value=\"DONT_SYNC\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 0\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2p3mGgTO283R6Xko4DjzHppZf1T\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"DefaultHtmlFileTemplate\": \"HTML File\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"J:/it_Projects/Git/travel-eval/nginx-1.18.0\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"settings.editor.selected.configurable\": \"preferences.lookFeel\",\r\n    \"ts.external.directory.path\": \"J:\\\\it_language\\\\IDE\\\\webstrom\\\\WebStorm 2024.1.5\\\\plugins\\\\javascript-plugin\\\\jsLanguageServicesImpl\\\\external\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62\" />\r\n        <option value=\"bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"ea8880eb-0b5c-4f6c-8c8e-621730b02afd\" name=\"Changes\" comment=\"\" />\r\n      <created>1732003039569</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1732003039569</updated>\r\n      <workItem from=\"1732003041064\" duration=\"7178000\" />\r\n      <workItem from=\"1732096497807\" duration=\"2517000\" />\r\n      <workItem from=\"1732172928748\" duration=\"649000\" />\r\n      <workItem from=\"1732174372621\" duration=\"333000\" />\r\n      <workItem from=\"1732262982362\" duration=\"6143000\" />\r\n      <workItem from=\"1732366543615\" duration=\"1250000\" />\r\n      <workItem from=\"1732371789521\" duration=\"821000\" />\r\n      <workItem from=\"1733984265714\" duration=\"1135000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"master\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,8 +4,7 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="ea8880eb-0b5c-4f6c-8c8e-621730b02afd" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/../.idea/uiDesigner.xml" afterDir="false" />
++    <list default="true" id="ea8880eb-0b5c-4f6c-8c8e-621730b02afd" name="Changes" comment="feat:管理后端完善和商户后端实现">
+       <change afterPath="$PROJECT_DIR$/../imgs/0ec81e5d-a233-4840-aa09-53b3eca55fff.png" afterDir="false" />
+       <change afterPath="$PROJECT_DIR$/../imgs/1608f41f-5624-4975-ac74-d0edd353d834.png" afterDir="false" />
+       <change afterPath="$PROJECT_DIR$/../imgs/1f1b9421-c4d4-4f98-ad9c-20cc1dae588e.png" afterDir="false" />
+@@ -26,31 +25,7 @@
+       <change afterPath="$PROJECT_DIR$/../imgs/e391e8d5-031b-4ab3-925b-e6254b1f8018.png" afterDir="false" />
+       <change afterPath="$PROJECT_DIR$/../imgs/e55da009-6dae-4507-8613-8cff3936fa1a.png" afterDir="false" />
+       <change afterPath="$PROJECT_DIR$/../imgs/ec1f8f8c-b483-4181-88ce-3c80778ad80f.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/html/admin/html/shop/add.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/html/admin" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/html/admin/html/comment/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/html/comment/list.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/html/admin/html/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/html/dashboard.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/html/admin/html/guide/editor.html" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/html/admin/html/guide/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/html/guide/list.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/html/admin/html/permission/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/html/permission/index.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/html/admin/html/profile/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/html/profile/index.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/html/admin/html/profile/password.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/html/profile/password.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/html/admin/html/role/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/html/role/index.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/html/admin/html/user/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/html/user/list.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/html/admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/index.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/html/admin/js/comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/js/comment.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/html/admin/js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/js/dashboard.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/html/admin/js/guide-editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/js/guide-editor.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/html/admin/js/guide.js" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/js/guide.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/html/admin/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/js/index.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/html/admin/js/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/js/user.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/html/admin/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/login.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/html/admin/util/token-interceptor.js" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/util/token-interceptor.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/html/travel/js/map.js" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/html/travel/login2.html" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/logs/access.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/access.log" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -76,22 +51,22 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "DefaultHtmlFileTemplate": "HTML File",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "kotlin-language-version-configured": "true",
+-    "last_opened_file_path": "J:/it_Projects/Git/travel-eval/nginx-1.18.0",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "nodejs_package_manager_path": "npm",
+-    "settings.editor.selected.configurable": "preferences.lookFeel",
+-    "ts.external.directory.path": "J:\\it_language\\IDE\\webstrom\\WebStorm 2024.1.5\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;J:/it_Projects/Git/travel-eval/nginx-1.18.0&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
++    &quot;ts.external.directory.path&quot;: &quot;J:\\it_language\\IDE\\webstrom\\WebStorm 2024.1.5\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="SharedIndexes">
+     <attachedChunks>
+       <set>
+@@ -115,8 +90,17 @@
+       <workItem from="1732262982362" duration="6143000" />
+       <workItem from="1732366543615" duration="1250000" />
+       <workItem from="1732371789521" duration="821000" />
+-      <workItem from="1733984265714" duration="1135000" />
++      <workItem from="1733984265714" duration="1758000" />
+     </task>
++    <task id="LOCAL-00001" summary="feat:管理后端完善和商户后端实现">
++      <option name="closed" value="true" />
++      <created>1733985522813</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1733985522813</updated>
++    </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -145,4 +129,8 @@
+       </map>
+     </option>
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="feat:管理后端完善和商户后端实现" />
++    <option name="LAST_COMMIT_MESSAGE" value="feat:管理后端完善和商户后端实现" />
++  </component>
+ </project>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml	
+@@ -0,0 +1,4 @@
++<changelist name="Uncommitted_changes_before_rebase_[Changes]" date="1733986009311" recycled="true" deleted="true">
++  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" />
++  <option name="DESCRIPTION" value="Uncommitted changes before rebase [Changes]" />
++</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch
+new file mode 100644
+--- /dev/null	
++++ b/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch	
+@@ -0,0 +1,90 @@
++Index: .idea/workspace.xml
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
++<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"ea8880eb-0b5c-4f6c-8c8e-621730b02afd\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/../.idea/uiDesigner.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/0ec81e5d-a233-4840-aa09-53b3eca55fff.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/1608f41f-5624-4975-ac74-d0edd353d834.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/1f1b9421-c4d4-4f98-ad9c-20cc1dae588e.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/2a4013c0-742a-4161-be3e-ef17b2d906f1.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/2b9edb26-3880-4e4c-a9db-906d9e1bb77d.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/568babc8-6a20-4a34-b053-6fc2cc07426b.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/58fb757c-e43a-40ee-9f8d-1dbbe4652df1.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/5e43fa86-06ef-415a-a4b1-ef77a0e77f9e.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/5e6e9f30-6179-4d88-a53c-74d5d8c95c7a.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/60344784-2431-4c63-b721-614ca0ff0544.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/6511256d-98aa-43e4-bd60-fce52fe2296f.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/79691087-de8e-4da4-a742-142b71d7eec0.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/8baca639-fedc-46db-91d2-f860680847c3.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/af2c9a5d-f880-4eac-9a22-5a2845d485f1.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/b1908368-0d39-41b3-8353-3aabd41a6923.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/d5c495be-f967-4008-b5eb-5e43751b7ef7.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/de702683-99cc-4fee-a086-b3fc802c97bb.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/e391e8d5-031b-4ab3-925b-e6254b1f8018.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/e55da009-6dae-4507-8613-8cff3936fa1a.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../imgs/ec1f8f8c-b483-4181-88ce-3c80778ad80f.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/html/admin/html/shop/add.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/vcs.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/vcs.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/html/comment/list.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/html/comment/list.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/html/dashboard.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/html/dashboard.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/html/guide/editor.html\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/html/guide/list.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/html/guide/list.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/html/permission/index.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/html/permission/index.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/html/profile/index.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/html/profile/index.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/html/profile/password.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/html/profile/password.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/html/role/index.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/html/role/index.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/html/user/list.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/html/user/list.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/index.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/index.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/js/comment.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/js/comment.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/js/dashboard.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/js/dashboard.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/js/guide-editor.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/js/guide-editor.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/js/guide.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/js/guide.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/js/index.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/js/index.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/js/user.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/js/user.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/login.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/login.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/admin/util/token-interceptor.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/html/admin/util/token-interceptor.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/travel/js/map.js\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/html/travel/login2.html\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/logs/access.log\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/logs/access.log\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"HTML File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\r\n    <option name=\"ROOT_SYNC\" value=\"DONT_SYNC\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 0\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2p3mGgTO283R6Xko4DjzHppZf1T\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"DefaultHtmlFileTemplate\": \"HTML File\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"J:/it_Projects/Git/travel-eval/nginx-1.18.0\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"settings.editor.selected.configurable\": \"preferences.lookFeel\",\r\n    \"ts.external.directory.path\": \"J:\\\\it_language\\\\IDE\\\\webstrom\\\\WebStorm 2024.1.5\\\\plugins\\\\javascript-plugin\\\\jsLanguageServicesImpl\\\\external\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62\" />\r\n        <option value=\"bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"ea8880eb-0b5c-4f6c-8c8e-621730b02afd\" name=\"Changes\" comment=\"\" />\r\n      <created>1732003039569</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1732003039569</updated>\r\n      <workItem from=\"1732003041064\" duration=\"7178000\" />\r\n      <workItem from=\"1732096497807\" duration=\"2517000\" />\r\n      <workItem from=\"1732172928748\" duration=\"649000\" />\r\n      <workItem from=\"1732174372621\" duration=\"333000\" />\r\n      <workItem from=\"1732262982362\" duration=\"6143000\" />\r\n      <workItem from=\"1732366543615\" duration=\"1250000\" />\r\n      <workItem from=\"1732371789521\" duration=\"821000\" />\r\n      <workItem from=\"1733984265714\" duration=\"1135000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"master\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n</project>
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++diff --git a/.idea/workspace.xml b/.idea/workspace.xml
++--- a/.idea/workspace.xml	(revision 497695855eeb66ad38bde8cffbc51aeef02a7068)
+++++ b/.idea/workspace.xml	(date 1733985724231)
++@@ -4,8 +4,7 @@
++     <option name="autoReloadType" value="SELECTIVE" />
++   </component>
++   <component name="ChangeListManager">
++-    <list default="true" id="ea8880eb-0b5c-4f6c-8c8e-621730b02afd" name="Changes" comment="">
++-      <change afterPath="$PROJECT_DIR$/../.idea/uiDesigner.xml" afterDir="false" />
+++    <list default="true" id="ea8880eb-0b5c-4f6c-8c8e-621730b02afd" name="Changes" comment="feat:管理后端完善和商户后端实现">
++       <change afterPath="$PROJECT_DIR$/../imgs/0ec81e5d-a233-4840-aa09-53b3eca55fff.png" afterDir="false" />
++       <change afterPath="$PROJECT_DIR$/../imgs/1608f41f-5624-4975-ac74-d0edd353d834.png" afterDir="false" />
++       <change afterPath="$PROJECT_DIR$/../imgs/1f1b9421-c4d4-4f98-ad9c-20cc1dae588e.png" afterDir="false" />
++@@ -26,31 +25,6 @@
++       <change afterPath="$PROJECT_DIR$/../imgs/e391e8d5-031b-4ab3-925b-e6254b1f8018.png" afterDir="false" />
++       <change afterPath="$PROJECT_DIR$/../imgs/e55da009-6dae-4507-8613-8cff3936fa1a.png" afterDir="false" />
++       <change afterPath="$PROJECT_DIR$/../imgs/ec1f8f8c-b483-4181-88ce-3c80778ad80f.png" afterDir="false" />
++-      <change afterPath="$PROJECT_DIR$/html/admin/html/shop/add.html" afterDir="false" />
++-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
++-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++-      <change beforePath="$PROJECT_DIR$/html/admin" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin" afterDir="false" />
++-      <change beforePath="$PROJECT_DIR$/html/admin/html/comment/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/html/comment/list.html" afterDir="false" />
++-      <change beforePath="$PROJECT_DIR$/html/admin/html/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/html/dashboard.html" afterDir="false" />
++-      <change beforePath="$PROJECT_DIR$/html/admin/html/guide/editor.html" beforeDir="false" />
++-      <change beforePath="$PROJECT_DIR$/html/admin/html/guide/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/html/guide/list.html" afterDir="false" />
++-      <change beforePath="$PROJECT_DIR$/html/admin/html/permission/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/html/permission/index.html" afterDir="false" />
++-      <change beforePath="$PROJECT_DIR$/html/admin/html/profile/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/html/profile/index.html" afterDir="false" />
++-      <change beforePath="$PROJECT_DIR$/html/admin/html/profile/password.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/html/profile/password.html" afterDir="false" />
++-      <change beforePath="$PROJECT_DIR$/html/admin/html/role/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/html/role/index.html" afterDir="false" />
++-      <change beforePath="$PROJECT_DIR$/html/admin/html/user/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/html/user/list.html" afterDir="false" />
++-      <change beforePath="$PROJECT_DIR$/html/admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/index.html" afterDir="false" />
++-      <change beforePath="$PROJECT_DIR$/html/admin/js/comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/js/comment.js" afterDir="false" />
++-      <change beforePath="$PROJECT_DIR$/html/admin/js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/js/dashboard.js" afterDir="false" />
++-      <change beforePath="$PROJECT_DIR$/html/admin/js/guide-editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/js/guide-editor.js" afterDir="false" />
++-      <change beforePath="$PROJECT_DIR$/html/admin/js/guide.js" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/js/guide.js" afterDir="false" />
++-      <change beforePath="$PROJECT_DIR$/html/admin/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/js/index.js" afterDir="false" />
++-      <change beforePath="$PROJECT_DIR$/html/admin/js/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/js/user.js" afterDir="false" />
++-      <change beforePath="$PROJECT_DIR$/html/admin/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/login.html" afterDir="false" />
++-      <change beforePath="$PROJECT_DIR$/html/admin/util/token-interceptor.js" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin/util/token-interceptor.js" afterDir="false" />
++-      <change beforePath="$PROJECT_DIR$/html/travel/js/map.js" beforeDir="false" />
++-      <change beforePath="$PROJECT_DIR$/html/travel/login2.html" beforeDir="false" />
++-      <change beforePath="$PROJECT_DIR$/logs/access.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/access.log" afterDir="false" />
++     </list>
++     <option name="SHOW_DIALOG" value="false" />
++     <option name="HIGHLIGHT_CONFLICTS" value="true" />
++@@ -115,8 +89,17 @@
++       <workItem from="1732262982362" duration="6143000" />
++       <workItem from="1732366543615" duration="1250000" />
++       <workItem from="1732371789521" duration="821000" />
++-      <workItem from="1733984265714" duration="1135000" />
+++      <workItem from="1733984265714" duration="1454000" />
+++    </task>
+++    <task id="LOCAL-00001" summary="feat:管理后端完善和商户后端实现">
+++      <option name="closed" value="true" />
+++      <created>1733985522813</created>
+++      <option name="number" value="00001" />
+++      <option name="presentableId" value="LOCAL-00001" />
+++      <option name="project" value="LOCAL" />
+++      <updated>1733985522813</updated>
++     </task>
+++    <option name="localTasksCounter" value="2" />
++     <servers />
++   </component>
++   <component name="TypeScriptGeneratedFilesManager">
++@@ -133,7 +116,7 @@
++                   <entry key="branch">
++                     <value>
++                       <list>
++-                        <option value="master" />
+++                        <option value="origin/master" />
++                       </list>
++                     </value>
++                   </entry>
++@@ -145,4 +128,8 @@
++       </map>
++     </option>
++   </component>
+++  <component name="VcsManagerConfiguration">
+++    <MESSAGE value="feat:管理后端完善和商户后端实现" />
+++    <option name="LAST_COMMIT_MESSAGE" value="feat:管理后端完善和商户后端实现" />
+++  </component>
++ </project>
++\ No newline at end of file
