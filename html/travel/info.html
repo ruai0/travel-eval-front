@@ -54,13 +54,9 @@
       退出登录
     </div>
   </div>
-  <div class="introduce">
-    <span v-if="info.introduce"></span>
-    <span v-else>添加个人简介，让大家更好的认识你 <i class="el-icon-edit"></i></span>
-  </div>
   <div class="content">
     <el-tabs v-model="activeName" @tab-click="handleClick">
-      <el-tab-pane label="笔记" name="1">
+      <el-tab-pane label="探店笔记" name="1">
         <div v-for="b in blogs" :key="b.id" class="blog-item">
           <div class="blog-img"><img :src="b.images.split(',')[0]" alt=""></div>
           <div class="blog-info">
@@ -70,7 +66,52 @@
           </div>
         </div>
       </el-tab-pane>
-      <el-tab-pane label="评价" name="2">评价</el-tab-pane>
+      <el-tab-pane label="旅游攻略" name="6">
+        <div class="guide-wrapper">
+          <div class="guide-list">
+            <div v-if="guides.length === 0" class="no-data">
+              暂无攻略数据
+            </div>
+            <div v-else v-for="guide in guides" :key="guide.id" class="guide-item">
+              <div class="guide-header">
+                <span class="guide-title">{{guide.title}}</span>
+                <span class="guide-status" :class="getGuideStatusClass(guide.status)">
+                  {{getGuideStatusText(guide.status)}}
+                </span>
+              </div>
+              <div class="guide-content">
+                <div class="guide-cover" v-if="guide.coverImage">
+                  <img :src="guide.coverImage" alt="封面">
+                </div>
+                <div class="guide-info">
+                  <div class="guide-desc">{{guide.description}}</div>
+                  <div class="guide-meta">
+                    <span class="guide-time">{{formatDate(guide.createTime)}}</span>
+                    <span class="guide-views">
+                      <i class="el-icon-view"></i> {{guide.viewCount}}
+                    </span>
+                    <span class="guide-comments">
+                      <i class="el-icon-chat-dot-round"></i> {{guide.commentCount}}
+                    </span>
+                    <span class="guide-route">
+                      {{guide.departure}} → {{guide.destination}}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="guide-pagination">
+            <el-pagination
+              @current-change="handleGuidePage"
+              :current-page="guidePage"
+              :page-size="guideSize"
+              :total="guideTotal"
+              layout="prev, pager, next">
+            </el-pagination>
+          </div>
+        </div>
+      </el-tab-pane>
       <el-tab-pane label="我的订单" name="5">
         <div class="order-wrapper">
           <div class="order-header page-header">
@@ -147,8 +188,35 @@
           </div>
         </div>
       </el-tab-pane>
-      <el-tab-pane label="粉丝(0)" name="3">粉丝(0)</el-tab-pane>
-      <el-tab-pane label="关注(0)" name="4">关注(0)</el-tab-pane>
+      <el-tab-pane :label="'粉丝(' + fansCount + ')'" name="3">
+        <div class="follow-list">
+          <div v-for="fan in fans" :key="fan.id" class="follow-info">
+            <div class="follow-info-icon">
+              <img :src="fan.icon || '/imgs/icons/default-icon.png'" alt="">
+            </div>
+            <div class="follow-info-name">{{fan.nickName}}</div>
+            <div class="follow-info-btn" 
+                 :class="{'is-followed': fan.isFollow}"
+                 @click="handleFollow(fan)">
+              {{fan.isFollow ? '取消关注' : '关注'}}
+            </div>
+          </div>
+        </div>
+      </el-tab-pane>
+      <el-tab-pane :label="'关注(' + followCount + ')'" name="4">
+        <div class="follow-list">
+          <div v-for="follow in follows" :key="follow.id" class="follow-info">
+            <div class="follow-info-icon">
+              <img :src="follow.icon || '/imgs/icons/default-icon.png'" alt="">
+            </div>
+            <div class="follow-info-name">{{follow.nickName}}</div>
+            <div class="follow-info-btn is-followed" @click="handleFollow(follow)">
+              取消关注
+            </div>
+          </div>
+        </div>
+      </el-tab-pane>
+    
     </el-tabs>
   </div>
   <foot-bar :active-btn="4"></foot-bar>

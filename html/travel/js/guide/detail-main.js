@@ -76,7 +76,11 @@ class GuideDetail {
 
     async loadRouteData() {
         try {
-            const response = await axios.get(`/api/travel-route/places/${this.guideId}`);
+            const response = await axios.get(`/api/admin/user/travel-route/places/${this.guideId}`,{
+                headers: {
+                    'Authorization': 'Bearer ' + sessionStorage.getItem('token')
+                }
+            });
             if (response.data.code === 200 && response.data.data) {
                 console.log('Route data:', response.data.data);
                 // 确保地图实例存在
@@ -95,7 +99,11 @@ class GuideDetail {
 
     async loadGuideDetail() {
         try {
-            const response = await axios.get(`/api/travel-guide/detail/${this.guideId}`);
+            const response = await axios.get(`/api/admin/user/travel-guide/detail/${this.guideId}`,{
+                headers: {
+                    'Authorization': 'Bearer ' + sessionStorage.getItem('token')
+                }
+            });
             if (response.data.code === 200) {
                 const detail = response.data.data;
                 this.renderGuideDetail(detail);
@@ -226,7 +234,11 @@ class GuideDetail {
 
     async loadComments() {
         try {
-            const response = await axios.get(`/api/travel-guide/comment/list/${this.guideId}`);
+            const response = await axios.get(`/api/admin/user/travel-guide/comment/list/${this.guideId}`,{
+                headers: {
+                    'Authorization': 'Bearer ' + sessionStorage.getItem('token')
+                }
+            });
             if (response.data.code === 200) {
                 this.renderComments(response.data.data);
             }
@@ -407,11 +419,15 @@ class GuideDetail {
         }
 
         try {
-            await axios.post('/api/travel-guide/comment/add', {
+            await axios.post('/api/admin/user/travel-guide/comment/add', {
                 guideId: this.guideId,
                 content: content.trim(),
                 parentId,
                 replyUserId
+            },{
+                headers: {
+                    'Authorization': 'Bearer ' + sessionStorage.getItem('token')
+                }
             });
 
             layer.msg('评论成功');

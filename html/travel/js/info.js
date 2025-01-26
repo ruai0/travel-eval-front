@@ -17,10 +17,23 @@ const app = new Vue({
         pageSize: 10,
         orderStatus: "",
         loading: false,
-        noMore: false
+        noMore: false,
+        follows: [],
+        fans: [],
+        followCount: 0,
+        fansCount: 0,
+        guides: [],
+        guidePage: 1,
+        guideSize: 10,
+        guideTotal: 0,
+        guideTitle: '',
     },
     created() {
+        console.log("Vue实例创建");
         this.queryUser();
+        this.loadFollowInfo();
+        this.queryOrders();
+        this.queryBlogs();
     },
     methods: {
         // 基础方法
@@ -33,6 +46,7 @@ const app = new Vue({
                     };
                     this.queryUserInfo();
                     this.queryBlogs();
+                    this.loadGuides();
                 })
                 .catch(err => {
                     location.href = "login.html"
@@ -71,10 +85,13 @@ const app = new Vue({
                 })
                 .catch(this.$message.error)
         },
-        handleClick(r) {
-            if (r.name === '4') {
-                this.queryBlogsOfFollow(true);
-            } else if (r.name === '5') {
+        handleClick(tab) {
+            console.log("标签切换到：", tab.name);
+            if (tab.name === "6") {
+                this.loadGuides();
+            } else if (tab.name === "3" || tab.name === "4") {
+                this.loadFollowInfo();
+            } else if (tab.name === "5") {
                 this.queryOrders();
             }
         },
@@ -149,7 +166,8 @@ const app = new Vue({
                 3: '已使用',
                 4: '已取消',
                 5: '退款中',
-                6: '已退款'
+                6: '已退款',
+                7: '已完成'
             };
             return statusMap[status] || '未知状态';
         },
@@ -226,14 +244,14 @@ const app = new Vue({
             axios.get(`/voucher-order/${order.id}`)
                 .then((response) => {
                     
-                    if(response.data.code === 200) {
-                        const { voucher, order: orderDetail } = response.data.data;
+                    if(response.code === 200) {
+                        const { voucher, order: orderDetail } = response.data;
                         const content = `
                             <div class="order-detail">
                                 <p><strong>订单编号：</strong>${orderDetail.id}</p>
                                 <p><strong>优惠券：</strong>${voucher.title}</p>
                                 <p><strong>优惠券描述：</strong>${voucher.subTitle}</p>
-                                <p><strong>使用规则：</strong>${voucher.rules.replace('\n', '<br>')}</p>
+                                <p><strong>使用规则：</strong>${voucher.rules==null?'':voucher.rules.replace('\n', '<br>')}</p>
                                 <p><strong>支付金额：</strong>￥${this.formatPrice(voucher.payValue)}</p>
                                 <p><strong>优惠券面值：</strong>￥${this.formatPrice(voucher.actualValue)}</p>
                                 <p><strong>下单时间：</strong>${this.formatDate(orderDetail.createTime)}</p>
@@ -303,6 +321,106 @@ const app = new Vue({
                         loading.close();
                     });
             });
+        },
+        // 加载关注信息
+        async loadFollowInfo() {
+            try {
+                // 获取关注列表
+                const followRes = await axios.get('/follow/follows');
+                if (followRes.code == 200) {
+                    this.follows = followRes.data;
+                    this.followCount = this.follows.length;
+                }
+
+                // 获取粉丝列表
+                const fansRes = await axios.get('/follow/fans');
+                if (fansRes.code === 200) {
+                    this.fans = fansRes.data;
+                    this.fansCount = this.fans.length;
+
+                    // 检查是否已关注这些粉丝
+                    for (let fan of this.fans) {
+                        const checkRes = await axios.get(`/follow/or/not/${fan.id}`);
+                        if (checkRes.code === 200) {
+                            fan.isFollow = checkRes.data;
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error('获取关注信息失败:', error);
+                this.$message.error('获取关注信息失败');
+            }
+        },
+
+        // 处理关注/取消关注
+        async handleFollow(user) {
+            try {
+                const res = await axios.put(`/follow/${user.id}/false`);
+                if (res.code === 200) {
+                    this.$message.success('已取消关注');
+                    // 更新关注数和粉丝数
+                    await this.loadFollowInfo();
+                } else {
+                    this.$message.error(res.data.msg || '操作失败');
+                }
+            } catch (error) {
+                console.error('关注操作失败:', error);
+                this.$message.error('操作失败，请重试');
+            }
+        },
+
+        // 加载攻略列表
+        async loadGuides() {
+        
+                const params = {
+                    page: this.guidePage,
+                    size: this.guideSize,
+                    title: this.guideTitle,
+                    userId: this.user.id
+                };
+          
+               await axios.get('/admin/user/guide/list', { params }).then(res => {
+                console.log(111);
+                if (res.code === 200) {
+                    
+                    this.guides = res.data;
+               
+                    this.guideTotal = res.count;
+                    // 可以保存总页数，如果需要的话
+                    // this.guidePages = res.data.pages;
+                } else {
+                    this.$message.error(res.data.msg || '获取攻略列表失败');
+                }
+                });
+        
+               
+           
+        },
+
+        // 处理攻略分页
+        handleGuidePage(page) {
+            this.guidePage = page;
+            this.loadGuides();
+        },
+
+        // 获取攻略状态文本
+        getGuideStatusText(status) {
+            const statusMap = {
+                0: '草稿',
+                1: '已发布',
+                2: '待审核'
+            };
+            return statusMap[status] || '未知状态';
+        },
+
+        // 获取攻略状态样式类
+        getGuideStatusClass(status) {
+            const classMap = {
+                0: 'guide-status-draft',
+                1: 'guide-status-published',
+                2: 'guide-status-pending'
+            };
+            return classMap[status] || '';
         },
     },
     mounted() {

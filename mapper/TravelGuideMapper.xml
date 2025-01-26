@@ -1,0 +1,23 @@
+<select id="selectGuideVOPage" resultType="com.travel.vo.GuideVO">
+    SELECT 
+        travel_guide.*,
+        u.nick_name AS user_name,
+        count(c.id) AS comment_count
+    FROM travel_guide
+    LEFT JOIN tb_user u ON travel_guide.user_id = u.id
+    LEFT JOIN travel_guide_comment c ON c.guide_id = travel_guide.id
+    WHERE travel_guide.user_id = #{userId}
+    GROUP BY travel_guide.id
+</select>
+
+<select id="countGuideVO" resultType="java.lang.Long">
+    SELECT count(0) FROM (
+        SELECT 
+            travel_guide.id
+        FROM travel_guide
+        LEFT JOIN tb_user u ON travel_guide.user_id = u.id
+        LEFT JOIN travel_guide_comment c ON c.guide_id = travel_guide.id
+        WHERE travel_guide.user_id = #{userId}
+        GROUP BY travel_guide.id
+    ) table_count
+</select> 

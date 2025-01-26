@@ -219,7 +219,11 @@ class PublishGuide {
                 routeId: routeId
             };
 
-            const response = await axios.post('/api/travel-guide/publish', guideData);
+            const response = await axios.post('/api/admin/user/travel-guide/publish', guideData,{
+                headers: {
+                    'Authorization': 'Bearer ' + sessionStorage.getItem('token')
+                }
+            });
             
             if (response.data.code === 200) {
                 layer.msg('发布成功！');

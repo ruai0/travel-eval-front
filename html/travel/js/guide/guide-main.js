@@ -59,16 +59,20 @@ class GuideList {
                 this.showLoading();
             }
 
-            const response = await axios.get('/api/travel-guide/list', {
+            const response = await axios.get('/api/admin/user/travel-guide/list', {
                 params: {
                     page: this.page,
                     size: this.pageSize,
                     keyword: this.keyword || undefined
                 }
+            },{
+                headers: {
+                    'Authorization': 'Bearer ' + sessionStorage.getItem('token')
+                }
             });
 
 
-            if (response.data.code === 200) {
+            if (response.data.code === 200 ) {
                 const pageResult = response.data.data;
                 this.renderGuides(pageResult, reset);
                 

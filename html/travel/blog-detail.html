@@ -20,6 +20,209 @@
     .liked{
 
     }
+    /* 评论区样式优化 */
+    .comment-input {
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    
+    .input-box {
+      position: relative;
+      margin-bottom: 15px;
+    }
+    
+    .comment-textarea {
+      width: 100%;
+      height: 100px;
+      padding: 12px 15px;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      resize: none;
+      font-size: 14px;
+      line-height: 1.6;
+      transition: all 0.3s;
+    }
+    
+    .comment-textarea:focus {
+      border-color: #ff6633;
+      box-shadow: 0 0 0 2px rgba(255,102,51,0.1);
+      outline: none;
+    }
+    
+    .comment-textarea::placeholder {
+      color: #999;
+    }
+    
+    .comment-btn {
+      text-align: right;
+    }
+    
+    .comment-btn .el-button {
+      padding: 10px 25px;
+      font-size: 14px;
+      border-radius: 20px;
+      background: #ff6633;
+      border-color: #ff6633;
+    }
+    
+    .comment-btn .el-button:hover {
+      background: #ff8533;
+      border-color: #ff8533;
+    }
+    
+    .login-tip {
+      text-align: center;
+      padding: 30px 0;
+      color: #999;
+      font-size: 14px;
+      background: #fff;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    
+    .login-tip a {
+      color: #ff6633;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+    
+    .login-tip a:hover {
+      text-decoration: underline;
+    }
+    
+    /* 评论列表样式优化 */
+    .comment-list {
+      padding: 0 15px;
+    }
+    
+    .comment-box {
+      display: flex;
+      padding: 15px 0;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    
+    .comment-icon {
+      width: 40px;
+      height: 40px;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+    
+    .comment-icon img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    
+    .comment-info {
+      flex: 1;
+    }
+    
+    .comment-user {
+      font-size: 14px;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 5px;
+    }
+    
+    .comment-content {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #666;
+      margin: 8px 0;
+    }
+    
+    .comment-footer {
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      color: #999;
+    }
+    
+    .comment-time {
+      margin-right: 15px;
+    }
+    
+    .like-btn {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .like-btn:hover {
+      color: #ff6633;
+    }
+    
+    .like-btn.liked {
+      color: #ff6633;
+    }
+    
+    .like-btn i {
+      margin-right: 3px;
+    }
+    
+    /* 分页样式优化 */
+    .pagination-container {
+      text-align: center;
+      margin: 20px auto;
+      padding: 15px 0;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      width: 90%;
+    }
+    
+    /* 店铺信息样式优化 */
+    .shop-basic {
+      background: #fff;
+      padding: 15px;
+      margin: 10px auto;
+      width: 90%;
+      display: flex;
+      align-items: center;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    .shop-icon {
+      width: 60px;
+      height: 60px;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+    
+    .shop-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    
+    .shop-info {
+      margin-top: 8px;
+      font-size: 13px;
+      color: #666;
+    }
+    
+    .shop-avg {
+      color: #ff6633;
+      margin-right: 15px;
+    }
+    
+    .shop-area {
+      color: #999;
+    }
+    
+    .name {
+      font-size: 16px;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 8px;
+    }
   </style>
 </head>
 <body>
@@ -63,10 +266,17 @@
         <div class="name">{{shop.name}}</div>
         <div>
           <el-rate
-              v-model="shop.score/10">
+              v-model="shop.score/10"
+              disabled
+              show-score
+              text-color="#ff9900"
+              score-template="{value}">
           </el-rate>
         </div>
-          <div class="shop-avg">￥{{shop.avgPrice}}/人</div>
+        <div class="shop-info">
+          <span class="shop-avg">￥{{shop.avgPrice}}/人</span>
+          <span class="shop-area">{{shop.area}} · {{shop.typeName}}</span>
+        </div>
       </div>
     </div>
     <div class="zan-box">
@@ -85,49 +295,58 @@
     <div class="blog-divider"></div>
     <div class="blog-comments">
       <div class="comments-head">
-        <div>网友评价 <span>（119）</span></div>
+        <div>网友评论 <span>（{{total}}）</span></div>
         <div><i class="el-icon-arrow-right"></i></div>
       </div>
+      
+      <!-- 评论输入框 -->
+      <div class="comment-input" v-if="user">
+        <div class="input-box">
+          <textarea 
+            v-model="commentContent" 
+            placeholder="写下你的想法，让更多人看到..."
+            class="comment-textarea"
+            @keyup.ctrl.enter="submitComment">
+          </textarea>
+        </div>
+        <div class="comment-btn">
+          <el-button type="primary" @click="submitComment">
+            <i class="el-icon-s-promotion"></i> 发表评论
+          </el-button>
+        </div>
+      </div>
+      <div v-else class="login-tip">
+        想参与讨论？请先 <a href="/login.html">登录</a> 吧~
+      </div>
       <div class="comment-list">
-        <div class="comment-box" v-for="i in 3" :key="i">
+        <div class="comment-box" v-for="item in comments" :key="item.id">
           <div class="comment-icon">
-            <img
-                src="https://p0.meituan.net/userheadpicbackend/57e44d6eba01aad0d8d711788f30a126549507.jpg%4048w_48h_1e_1c_1l%7Cwatermark%3D0"
-                alt="">
+            <img :src="item.userIcon || '/imgs/icons/default-icon.png'" alt="">
           </div>
           <div class="comment-info">
-            <div class="comment-user">叶小乙 <span>Lv5</span></div>
-            <div style="display: flex;">
-              打分
-              <el-rate disabled v-model="4.5"></el-rate>
-            </div>
+            <div class="comment-user">{{item.userName}}</div>
             <div style="padding: 5px 0; font-size: 14px">
-              某平台上买的券，价格可以当工作餐吃，虽然价格便宜，但是这家店一点都没有...
+              {{item.content}}
             </div>
-            <div class="comment-images">
-              <img
-                  src="https://qcloud.dpfile.com/pc/6T7MfXzx7USPIkSy7jzm40qZSmlHUF2jd-FZUL6WpjE9byagjLlrseWxnl1LcbuSGybIjx5eX6WNgCPvcASYAw.jpg"
-                  alt="">
-              <img
-                  src="https://qcloud.dpfile.com/pc/sZ5q-zgglv4VXEWU71xCFjnLM_jUHq-ylq0GKivtrz3JksWQ1f7oBWZsxm1DWgcaGybIjx5eX6WNgCPvcASYAw.jpg"
-                  alt="">
-              <img
-                  src="https://qcloud.dpfile.com/pc/xZy6W4NwuRFchlOi43DVLPFsx7KWWvPqifE1JTe_jreqdsBYA9CFkeSm2ZlF0OVmGybIjx5eX6WNgCPvcASYAw.jpg"
-                  alt="">
-              <img
-                  src="https://qcloud.dpfile.com/pc/xZy6W4NwuRFchlOi43DVLPFsx7KWWvPqifE1JTe_jreqdsBYA9CFkeSm2ZlF0OVmGybIjx5eX6WNgCPvcASYAw.jpg"
-                  alt="">
-            </div>
-            <div>
-              浏览641 &nbsp;&nbsp;&nbsp;&nbsp;评论5
+            <div class="comment-footer">
+              <span class="comment-time">{{item.createTime ? formatTime(new Date(item.createTime)) : ''}}</span>
+              <span class="like-btn" :class="{'liked': item.isLike}" @click="handleCommentLike(item)">
+                <i class="el-icon-thumb"></i>
+                {{item.liked}}
+              </span>
             </div>
           </div>
         </div>
-        <div
-            style="display: flex; justify-content: space-between;padding: 15px 0; border-top: 1px solid #f1f1f1; margin-top: 10px;">
-          <div>查看全部119条评价</div>
-          <div><i class="el-icon-arrow-right"></i></div>
-        </div>
+      </div>
+      <div class="pagination-container" v-if="total > 0">
+        <el-pagination
+          background
+          layout="prev, pager, next"
+          :total="total"
+          :page-size="size"
+          :current-page.sync="page"
+          @current-change="handlePageChange">
+        </el-pagination>
       </div>
     </div>
     <div class="blog-divider"></div>
@@ -166,7 +385,7 @@
       blog: {},
       shop: {},
       likes: [],
-      user: {}, // 登录用户
+      user: {}, // 登录户
       followed: false, // 是否关注了
       _width: 0,
       duration: 300,
@@ -182,11 +401,22 @@
         y: 0
       },
       sensitivity: 60,
-      resistance: 0.3
+      resistance: 0.3,
+      commentContent: '',
+      total: 0,
+      size: 5,
+      page: 1,
+      comments: [],
+      dangerouslyUseHTMLString: true,
+      message: '',
+      showClose: true,
+      blogId: null,  // 添加blogId存储
     },
     created() {
       let id = util.getUrlParam("id");
+      this.blogId = id;  // 保存blogId
       this.queryBlogById(id);
+      this.loadComments();  // 移除id参数
     },
     methods: {
       init() {
@@ -222,9 +452,15 @@
       },
       queryShopById(shopId) {
         axios.get("/shop/" + shopId)
-          .then(({data}) => {
-            data.image = data.images.split(",")[0]
-            this.shop = data
+          .then((res) => {
+            if(res.code == 200){
+              let shopData = res.data.shop;
+              // 处理图片
+              shopData.image = shopData.images.split(",")[0];
+              this.shop = shopData;
+            }else{
+              this.$message.error(res.message)
+            }
           })
           .catch(this.$message.error)
       },
@@ -262,6 +498,12 @@
           .catch(this.$message.error)
       },
       formatTime(b) {
+        if (typeof b === 'string') {
+          b = new Date(b);
+        }
+        if (!(b instanceof Date) || isNaN(b.getTime())) {
+          return '';
+        }
         return b.getFullYear() + "年" + (b.getMonth() + 1) + "月" + b.getDate() + "日 ";
       },
       formatMinutes(m) {
@@ -320,7 +562,7 @@
           this.isMoving = true
           this.move.x = this.start.x + distanceX
           this.move.y = this.start.y + distanceY
-          // 当活动子项为第一项且手指向右滑动或者活动项为最后一项切向左滑动的时候，添加阻力，形成一个拉弹簧的效果
+          // 当活动子项为第一项且手指向右滑动或者活动项为最后一项切向左滑动的时候，添加阻力，形成一个拉弹的效果
           if ((this.active === 0 && distanceX > 0) || (this.active === (this.items.length - 1) && distanceX < 0)) {
             distanceX = distanceX * this.resistance
           }
@@ -380,6 +622,84 @@
         this.$emit('change', this.active)
         this.setTransition()
         this.setTransform()
+      },
+      submitComment() {
+        if (!this.commentContent.trim()) {
+          this.$message({
+            message: '请输入评论内容',
+            type: 'warning'
+          });
+          return;
+        }
+        axios.post("/blog-comments", {
+          blogId: this.blog.id,
+          content: this.commentContent
+        })
+          .then((res) => {
+            if(res.code == 200) {
+              this.$message.success("评论发表成功");
+              this.commentContent = '';
+              this.page = 1;  // 重置到第一页
+              this.loadComments();
+            } else {
+              this.$message.error(res.message);
+            }
+          })
+          .catch(err => {
+            this.$message.error(err.message);
+          });
+      },
+      handleCommentLike(comment) {
+        axios.put("/blog-comments/like/" + comment.id)
+          .then((res) => {
+            if(res.code == 200) {
+              if(comment.isLike) {
+                // 如果已点赞，则取消点赞
+                comment.liked--
+              } else {
+                // 如果未点赞，点赞数+1
+                comment.liked++
+              }
+              // 切换点赞状态
+              comment.isLike = !comment.isLike
+            } else {
+              this.$message.error(res.data.message)
+            }
+          })
+          .catch(this.$message.error)
+      },
+      loadComments() {
+        axios.get("/blog-comments/" + this.blogId, {
+          params: {
+            page: this.page,
+            size: this.size
+          }
+        })
+          .then((res) => {
+            if(res.code == 200) {
+              if (this.page > 1 && res.data.records.length === 0) {
+                // 如果当前页没有数据，回到第一页
+                this.page = 1;
+                this.loadComments();
+                return;
+              }
+              this.comments = res.data.records.map(comment => ({
+                ...comment,
+                isLike: comment.isLike || false
+              }));
+              this.total = res.data.total;
+              console.log('Total comments:', this.total); // 添加日志
+            } else {
+              this.$message.error(res.data.message);
+            }
+          })
+          .catch(this.$message.error);
+      },
+      // 分页改变事件
+      handlePageChange(newPage) {
+        console.log('Page changed to:', newPage); // 添加日志
+        this.page = newPage;
+        this.loadComments();
       }
     }
   })

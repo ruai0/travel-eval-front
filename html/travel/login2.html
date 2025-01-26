@@ -86,6 +86,7 @@
             if(data){
               // 保存用户信息到session
               sessionStorage.setItem("token", data);
+              localStorage.setItem("token", data);
             }
             // 跳转到首页
             location.href = "/info.html"
